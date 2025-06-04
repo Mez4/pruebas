@@ -1,0 +1,1 @@
+export { default as CajaDenominacionesMonedaCajera} from '../CompCajas/CajaDenominacionesMonedaGeneral'

@@ -1,0 +1,12 @@
+.CartForm {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.cartItems {
+    max-height: 400px;
+    overflow-y: scroll;
+}

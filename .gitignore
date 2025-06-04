@@ -1,0 +1,10 @@
+/.vs
+**/node_modules
+/uicv/node_modules
+/node_modules
+/conekta
+./ConfiaWebApi/appsettings.json
+./ConfiaWebApi/dbconfig.json
+ConfiaWebApi/appsettings.json
+ConfiaWebApi/dbconfig.json
+.DS_Store

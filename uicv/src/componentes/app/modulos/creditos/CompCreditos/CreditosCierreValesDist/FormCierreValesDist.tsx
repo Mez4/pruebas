@@ -1,0 +1,507 @@
+import { useState, useMemo, useRef, useEffect } from "react"
+import DataTable, { IDataTableColumn } from 'react-data-table-component'
+import { IOidc } from "../../../../../../interfaces/oidc/IOidc"
+import { iUI } from "../../../../../../interfaces/ui/iUI"
+import { useParams } from "react-router-dom"
+import { Coordinadores, Sucursales, Zonas } from "../../../../../selectores"
+import { CustomFieldDatePicker, Spinner } from "../../../../../global"
+import { toast } from "react-toastify"
+import { Formik, Form } from "formik"
+import FiltroPorUsuario from "../../../general/CompGeneral/FiltroPorUsuario/FiltroPorUsuario"
+import * as Funciones from "./Funciones"
+import moment from "moment"
+
+type FormDistPagoVencimientoType = {
+    oidc: IOidc,
+    ui: iUI,
+    initialValues: {
+        DirectorID: number,
+        ProductoID: number,
+        SucursalID: number,
+        ZonaID: number,
+        EmpresaID: number,
+        DistribuidorID: number,
+        CoordinadorID: number,
+        creditoPromotorId: number,
+        ContratoID: number,
+        EstatusID: string,
+        DistribuidorNivelID: number,
+        FechaInicio: Date,
+        FechaFin: Date,
+        GrupoID: number,
+        Permiso: boolean,
+        tipoDias: string
+    },
+}
+
+
+const filtroExceptoCampo = (arr: any[], field: string, data: string) => {
+    const response = field && data ? arr.filter((element) => element[`${field}`] == data) : arr;
+    return response;
+}
+
+const filtro = (data: any[], values) => {
+    let arr: any[] = filtroExceptoCampo(data, "", "");
+    if (!isNaN(values.zona) && values.zona > 0)
+        arr = filtroExceptoCampo(arr, "ZonaID", `${values.zona}`)
+    if (!isNaN(values.sucursal) && values.sucursal > 0)
+        arr = filtroExceptoCampo(arr, "SucursalID", `${values.sucursal}`)
+    if (!isNaN(values.coordinador) && values.coordinador > 0)
+        arr = filtroExceptoCampo(arr, "CoordinadorID", `${values.coordinador}`)
+    return arr;
+}
+
+
+export default function FormDistPagoVencimiento(props: FormDistPagoVencimientoType) {
+    let isMounted = useRef(true);
+    let params = useParams<{ productoId: string }>();
+
+    const Datos: any[] = []
+    const DatosMostrar: any[] = []
+
+    const [state, setState] = useState({
+        Error: false,
+        Datos,
+        DatosMostrar,
+        DatosReporte: false,
+        Cargando: false,
+    });
+
+    const [loading, setLoading] = useState(false);
+    const [zona, setZona] = useState(0);
+    const [sucursal, setSucursal] = useState(0);
+    const [coordinador, setCoordinador] = useState(0);
+
+    const filtrar = (values: any) => {
+        const ProdID = !isNaN(values.ProductoID) ? values.ProductoID as number : 0;
+        const SucursalIDAux = !isNaN(values.SucursalID) ? values.SucursalID as number : 0;
+        const ZonaAux = !isNaN(values.ZonaID) ? values.ZonaID as number : 0;
+        const GrupoIDAux = !isNaN(values.GrupoID) ? values.GrupoID as number : 0;
+        const CoordinadorIDAux = !isNaN(values.CoordinadorID) ? values.CoordinadorID as number : 0;
+
+        if (!Boolean(ProdID)) {
+            toast.info("Por favor, seleccione un producto");
+            return;
+        }
+        /*if (!Boolean(values.Fecha)) {
+            toast.info("Por favor, seleccione una fecha");
+            return;
+        }*/
+
+        setLoading(true);
+
+        Funciones.FNReporte1506(props.oidc, {
+            DirectorID: values.DirectorID,
+            DistribuidorID: values.DistribuidorID,
+            ClienteID: values.ClienteID,
+            SucursalID: SucursalIDAux,
+            ZonaID: ZonaAux,
+            ProductoID: ProdID,
+            GrupoID: GrupoIDAux,
+            fechaCorte: values.Fecha, // En esta ocasion se utiliza para buscar una fecha en especifico,
+            tipoDias: values.tipoDias,
+            CoordinadorID: CoordinadorIDAux
+
+        })
+
+            .then((respuesta: any) => {
+                if (respuesta.length > 0) {
+                    let tabla: any[] = []
+                    let ImporteTotal = 0
+                    let SaldoActual = 0
+                    let SaldoAtrasado = 0
+                    let DiasAtraso = 0
+                    let PagosAtrasados = 0
+                    respuesta.forEach((element: any) => {
+                        let Reporte: any = {
+                            ZonaID: element.ZonaID,
+                            Zona: element.ZonaNombre,
+                            SucursalID: element.SucursalID,
+                            Sucursal: element.Sucursal,
+                            CoordinadorID: element.CoordinadorID,
+                            Coordinador: element.Coordinador,
+                            DistribuidorID: element.DistribuidorID,
+                            Distribuidor: element.personaNombre,
+                            Nivel_DistribuidorNivel: element.Nivel_DistribuidorNivel,
+                            ImporteTotal: element.ImporteTotal,
+                            SaldoActual: element.SaldoActual,
+                            SaldoAtrasado: element.SaldoAtrasado,
+                            DiasAtraso: element.DiasAtraso,
+                            PagosAtrasados: element.CortesAtrasados,
+
+                        }
+                        ImporteTotal += element.ImporteTotal
+                        SaldoActual += element.SaldoActual
+                        SaldoAtrasado += element.SaldoAtrasado
+                        DiasAtraso += element.DiasAtraso
+                        PagosAtrasados += element.CortesAtrasados
+                        tabla.push(Reporte)
+                    });
+                    let TotalReporte: any = {
+                        ZonaID: '',
+                        Zona: '',
+                        CoordinadorID: '',
+                        Coordinador: '',
+                        DistribuidorID: '',
+                        Distribuidor: '',
+                        Nivel_DistribuidorNivel: 'TOTAL:',
+                        ImporteTotal,
+                        SaldoActual,
+                        SaldoAtrasado,
+                        DiasAtraso,
+                        PagosAtrasados,
+                    }
+
+                    tabla.push(TotalReporte)
+                    setState(s => ({ ...s, Error: false, Datos: tabla, DatosReporte: true }))
+                    toast.success("Datos obtenidos correctamente");
+                }
+                else {
+                    setState(s => ({ ...s, Error: false, Datos: [], DatosReporte: false }))
+                    toast.warning("Datos No obtenidos, Verifique Si Existe El Cierre");
+                }
+            })
+            .catch(() => {
+                setState(s => ({ ...s, Error: false, Datos: [], DatosMostrar: [] }))
+                setLoading(false);
+                toast.error("Hubo un error al obtener los datos");
+            })
+    }
+
+    useEffect(() => {
+        const arr = filtro(state.Datos, { zona, sucursal, coordinador });
+        setState(s => ({ ...s, Datos: arr }));
+    }, [zona, sucursal, coordinador])
+
+    useEffect(() => {
+        return () => {
+            isMounted.current = false
+        }
+    }, [props.oidc])
+
+    const Columns = useMemo(() => {
+        let colRet: IDataTableColumn[] =
+            [
+                {
+                    name: 'ZonaID', selector: 'ZonaID', sortable: false, center: true, wrap: true, width: '70px',
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'Zona', selector: 'Zona', sortable: false, center: true, wrap: true,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'Coordinador', selector: 'Coordinador', sortable: false, center: true, cell: (props) =>
+                        <span style={{ textAlign: "center" }}>{props.Coordinador}</span>,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'SucursalID', selector: 'SucursalID', sortable: false, center: true, cell: (props) =>
+                        <span style={{ textAlign: "center" }}>{props.SucursalID}</span>,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'Sucursal', selector: 'Sucursal', sortable: false, center: true, cell: (props) =>
+                        <span style={{ textAlign: "center" }}>{props.Sucursal}</span>,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'Socia ID', selector: 'DistribuidorID', sortable: true, center: true, wrap: true,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'Socia', selector: 'Distribuidor', sortable: true, center: true, cell: (props) =>
+                        <span style={{ textAlign: "center" }}>{props.Distribuidor}</span>,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'Nivel Socia', selector: 'Nivel_DistribuidorNivel', sortable: false, center: true, cell: (props) =>
+                        <span style={{ textAlign: "center" }}>{props.Nivel_DistribuidorNivel}</span>,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'Importe Total', selector: 'ImporteTotal', sortable: false, center: true, cell: (props) =>
+                        <span style={{ textAlign: "center" }}>{props.ImporteTotal.toLocaleString('en-US', { style: 'currency', currency: 'USD', })}</span>,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'Saldo Actual', selector: 'SaldoActual', sortable: false, center: true, cell: (props) =>
+                        <span style={{ textAlign: "center" }}>{props.SaldoActual.toLocaleString('en-US', { style: 'currency', currency: 'USD', })}</span>,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'Saldo Atrasado', selector: 'SaldoAtrasado', sortable: false, center: true, cell: (props) =>
+                        <span style={{ textAlign: "center" }}>{props.SaldoAtrasado.toLocaleString('en-US', { style: 'currency', currency: 'USD', })}</span>,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'Dias Atraso', selector: 'DiasAtraso', sortable: false, center: true, cell: (props) =>
+                        <span style={{ textAlign: "center" }}>{props.DiasAtraso.toLocaleString('en-US')}</span>,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                },
+                {
+                    name: 'Pagos Atrasados', selector: 'PagosAtrasados', sortable: false, center: true, cell: (props) =>
+                        <span style={{ textAlign: "center" }}>{props.PagosAtrasados.toLocaleString('en-US')}</span>,
+                    conditionalCellStyles: [
+                        {
+                            when: row => row.ZonaID == 0,
+                            style: {
+                                textAlign: 'center',
+                                borderTop: '1px solid black',
+
+                                backgroundColor: '#f0f0f0',
+                                fontWeight: 'bold'
+
+                            },
+
+                        },
+                    ]
+                }
+            ]
+        return colRet
+    }, [])
+
+
+    return (
+        <div>
+            <FiltroPorUsuario
+                oidc={props.oidc}
+                ui={props.ui}
+                initialValues={props.initialValues}
+                onSubmit={filtrar}
+                loading={loading}
+                Es1506={true}
+                PrintExcelObj={{ data: state.Datos, title: "Consulta Rapida 1506", nameDoc: "ConsultaRapida(1506)" }}
+            //children={<CustomFieldDatePicker disabled={loading} label="Fecha" name="Fecha" placeholder="Fecha cierre" />}
+            />
+            {/* Filtro de datos (DISTINCT) */}
+            {/*state.Datos.length > 0 &&
+                <Formik
+                    initialValues={{ Zona: 0, Sucursal: 0, Coordinador: 0 }}
+                    onSubmit={() => { }}
+                >
+                    {({ values }) => {
+                        useEffect(() => {
+                            setCoordinador(values.Coordinador);
+                            return () => { values }
+                        }, [values.Coordinador])
+
+                        useEffect(() => {
+                            setSucursal(values.Sucursal);
+                            return () => { values }
+                        }, [values.Sucursal])
+
+                        useEffect(() => {
+                            setZona(values.Zona);
+                            return () => { values }
+                        }, [values.Zona])
+                        return (
+                            <Form>
+                                <div className="columns is-desktop mx-3 my-1">
+                                    <div className="column is-12-mobile is-12-tablet is-3-desktop" >
+                                        <Zonas oidc={props.oidc} name="Zona" cargar={loading} />
+                                    </div>
+                                    <div className="column is-12-mobile is-12-tablet is-3-desktop" >
+                                        <Sucursales valor={sucursal} ProductoID={parseInt(params.productoId)} name="Sucursal" ZonaID={isNaN(zona) ? 0 : zona} />
+                                    </div>
+                                    <div className="column is-12-mobile is-12-tablet is-3-desktop" >
+                                        <Coordinadores valor={coordinador} name="Coordinador" SucursalID={isNaN(sucursal) ? 0 : sucursal} />
+                                    </div>
+                                    <div className="text-center column is-12-mobile is-12-tablet is-3-desktop" >
+                                        <button
+                                            onClick={() => {
+                                                const arr = filtroExceptoCampo(state.Datos, "", "");
+                                                setState(s => ({ ...s, Datos: arr }))
+                                            }}
+                                            //disabled={loading}
+                                            className="btn btn-info btn-lg mt-4"
+                                            type="reset"
+                                        >
+                                            Reiniciar
+                                        </button>
+                                    </div>
+                                </div>
+                            </Form>
+                        )
+                    }}
+                </Formik>
+            */}
+            {/* Fin Filtro de datos (DISTINCT) */}
+
+            <DataTable
+                data={state.Datos}
+                //progressPending={loading}
+                //progressComponent={<Spinner />}
+                striped
+                //pagination
+                defaultSortAsc={true}
+                dense
+                noHeader
+                responsive
+                keyField={""}
+                columns={Columns}
+                theme="solarized"
+                onChangeRowsPerPage={(currentRowsPerPage, currentPage) => {
+                    setState(s => ({ ...s, Error: false, DatosMostrar: state.Datos }))
+                }}
+            />
+
+        </div>
+    )
+}

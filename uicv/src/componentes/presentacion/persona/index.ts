@@ -1,0 +1,1 @@
+export { PerfilPersona } from './PerfilPersona'

@@ -1,0 +1,111 @@
+﻿<html>
+
+<head>
+    <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor">
+    <link href="https://@@SERVER/pdf/Contrato.Caratula.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/Contrato.Caratula.css" rel="stylesheet" id="bootstrapServidor">
+</head>
+
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div style="margin: 10px;">
+        <!-- inicio <> cabecera -->
+        <div style="
+            background-image: url('https://@@SERVER/pdf/LogoImg/@@LOGO');
+            background-repeat: repeat;
+            background-position: top;
+            background-origin: padding-box;
+            background-clip: padding-box;
+            opacity: 0.1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        "></div>
+        <div class="invoice-company" style="height: 65px;">
+            <span class="pull-right hidden-print">
+            </span>
+            <div style="float: right; margin-top: 8px; text-align: right; font-size: 13px;">
+                SUCURSAL: <strong>@@SUCURSAL</strong><br />
+                FECHA: <strong>@@FECHA_ENTREGA</strong><br />
+                <strong>ENTREGA DE VALERA</strong>
+            </div>
+        </div>
+        <hr />
+        <br />
+        <br />
+        <br />
+        <!-- fin <> cabecera -->
+        <!-- inicio <> detalle cabecera -->
+        <strong>ENTREGA DE VALERA A SOCIA DV</strong>
+        <br />
+        <br />
+        <div class="" style="text-align: justify; font-size: 15px;">
+            SR(A). SOCIA @@NDV - @@DV
+            <br />
+            RECIBI DE @@Producto UNA VALERA CON LA NUMERACION INICIAL #@@F_INICIAL AL #@@F_FINAL
+            <br />
+            ESTARA A MI CARGO Y ME HAGO RESPONSABE DE LA MISMA
+        </div>
+        <!-- fin <> detalle cabecera -->
+        <!-- inicio <> aval -->
+        <br />
+        <br />
+        <div class="" style="font-size: 13px; margin-top: 10px; border: 2px solid gray;">
+            <div class="bg-secondary text-white p-1 ps-2">
+                <strong>DATOS DE LA VALERA</strong>
+            </div>
+            <div class="card-body p-0 pt-2 pb-0" style="margin-bottom: 10px;">
+                <div class="row m-0 mb-2 d-table-row">
+                    <div class="col-sm-6 col w-25 d-table-cell">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                PRODUCTO:
+                                <strong>@@PRODUCTO</strong>
+                            </li>
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                SERIE:
+                                <strong>@@SERIE</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 w-25 d-table-cell">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                FOLIO INICIAL:
+                                <strong>@@F_INICIAL</strong>
+                            </li>
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                FOLIO FINAL:
+                                <strong>@@F_FINAL</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="position: absolute; bottom: 50px;">
+        <div class="row m-0 mb-2 d-table-row">
+            <div class="col-sm-4 text-center ps-3 pe-3 w-50 d-table-cell">
+                <p class="bg-secondary text-white text-center fw-bold fs-6">ENTREGA</p>
+                <br>
+                <hr class="mt-5 mb-0" />
+                <span>NOMBRE Y FIRMA</span>
+            </div>
+            <div class="col-sm-4 text-center ps-3 pe-3 w-50 d-table-cell">
+                <p class="bg-secondary text-white text-center fw-bold fs-6">RECIBE</p>
+                <br>
+                <hr class="mt-5 mb-0" />
+                <span>NOMBRE Y FIRMA</span>
+            </div>
+            <div class="col-sm-4 text-center d-table-cell">
+                <p class="bg-secondary text-white text-center"></p>
+                <br>
+                <hr class="" />
+                <span></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+export { default as CatalogoTipoCuenta } from './CatalogoTipoCuenta'
+export { default as CatalogoTipoPoliza } from './CatalogoTipoPoliza'
+export { default as MonedaSat } from './MonedaSat'
+export { default as DesembolsoFiniquito } from './DesembolsoFiniquito'
+export { default as Multisaldos_General} from './Multisaldos_General'
+export { default as DispersionSpei} from './DispersionSpei'

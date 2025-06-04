@@ -1,0 +1,417 @@
+<html>
+
+<head>
+  <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor" />
+  <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor" />
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    @@estiloCampaniaCancun
+    .imageDIV {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .imageDIV::before {
+      border-radius: 25px;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      /* background: url("https://@@SERVER/pdf/BANNER1.jpg"); */
+      background: url("https://@@SERVER/pdf/@@IMAGENBANNER");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      scale: 0.85;
+      opacity: 1;
+      z-index: 1;
+    }
+    
+
+    .content-overlay {
+      position: absolute;
+      top: -0.3rem;
+      z-index: 2;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    .tableCustom {
+      border: none !important;
+      border-spacing: 0 !important;
+      border-collapse: collapse !important;
+    }
+
+    .tableCustom td,
+    .tableCustom th {
+      border: none !important;
+    }
+
+    .rcorners {
+      border-radius: 25px;
+      border: 2px solid #000000;
+      padding: 5px;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .colordBlue {
+      /* background-color: blue; */
+    }
+
+    .colordRed {
+      /* background-color: red; */
+    }
+
+    .colorGreen {
+      /* background-color: green; */
+    }
+  </style>
+</head>
+
+<body class="colorGreen" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+  <div style="margin: 0; height: 100%;">
+    <div class="d-table mb-1" style="width: 100%">
+      <div class="d-table-row" style="width: 100%">
+        <div class="d-table-cell text-center" style="width: 61%">
+          <table class="table table-sm" style="border: #ffffff; width: 100%; font-size: 11.5px">
+            <thead>
+              <tr>
+                <th style="font-size: 0.8rem;" colspan="5" class="text-center">TABLA BONIFICACIONES</th>
+              </tr>
+              <tr style="background-color: @@COLOR">
+                <th class="text-center">FECHA PAGO</th>
+                <th class="text-center">IMPORTE</th>
+                <th class="text-center">%BONIFICACI&Oacute;N</th>
+                <th class="text-center">BONIFICACI&Oacute;N</th>
+                <th class="text-center">PAGO TOTAL</th>
+              </tr>
+            </thead>
+            <tbody>
+              @@TABLA_BONIFICACION
+            </tbody>
+          </table>
+          <table class="table table-sm" style="border: #ffffff; width: 100%; font-size: 11.5px">
+            <thead>
+              <tr>
+                <th style="font-size: 0.8rem;" colspan="5" class="text-center">PAGO CORRESPONSALES</th>
+              </tr>
+              <tr style="background-color: @@COLOR">
+                <th class="text-center">FECHA PAGO</th>
+                <th class="text-center">OXXO CONEKTA</th>
+                <th class="text-center">SORIANA SPEI</th>
+                <th class="text-center">BANCO</th>
+              </tr>
+            </thead>
+            <tbody>
+              @@TABLA_CORRESPONDIENTE
+            </tbody>
+          </table>
+        </div>
+        <div class="d-table-cell text-center" style="width: 2%"></div>
+        <div class="d-table-cell text-center" style="width: 37%">
+          <div style="padding: 0rem">
+            <table class="table table-sm" style="
+                  border: #ffffff;
+                  width: 100%;
+                  font-size: 13.47px;
+                  font-weight: bold;
+                ">
+              <tr>
+                <td style="color: green" class="text-end">
+                  Base de comisi&oacute;n (capital + inter&eacute;s):
+                </td>
+                <td class="text-end" style="text-decoration: underline">
+                  + @@BASECOMISION
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">
+                  Comisi&oacute;n @@PORCENTAJECOMISION:
+                </td>
+                <td class="text-end" style="text-decoration: underline">
+                  - @@BONIFICACIONSOBRECOMISION
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">Tienda CF:</td>
+                <td class="text-end" style="text-decoration: underline">
+                  + @@TOTALTIENDITA
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">
+                  Bonificaci&oacute;n de tienda:
+                </td>
+                <td class="text-end" style="text-decoration: underline">
+                  - @@BONIFICACIONTIENDITA
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">Subtotal:</td>
+                <td class="text-end" style="text-decoration: underline">
+                  @@SUBTOTAL
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">
+                  Complementos (USV + IVA):
+                </td>
+                <td class="text-end" style="text-decoration: underline">
+                  + @@COMPLEMENTOS
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">
+                  Protecci&oacute;n saldo socia:
+                </td>
+                <td class="text-end" style="text-decoration: underline">
+                  + @@PROTECCIONSALDO
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">
+                  Cobro de valera:
+                </td>
+                <td class="text-end" style="text-decoration: underline">
+                  + @@COSTOVALERA
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">Faltante:</td>
+                <td class="text-end" style="text-decoration: underline">
+                  + @@TOTALFALTANTE
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">
+                  Pr&eacute;stamos personales:
+                </td>
+                <td class="text-end" style="text-decoration: underline">
+                  + @@PRESTAMOSPERSONALES
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">
+                  Cr&eacute;dito @@NOMBRETIENDITA:
+                </td>
+                <td class="text-end" style="text-decoration: underline">
+                  + @@CREDITOTIENDITA
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">
+                  @@NOMBRECONFIAHOME:
+                </td>
+                <td class="text-end" style="text-decoration: underline">
+                  + @@CREDITOCONFIAHOME
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">Otros:</td>
+                <td class="text-end" style="text-decoration: underline">
+                  + @@CREDITOSOTROS
+                </td>
+              </tr>
+              <tr>
+                <td style="color: green" class="text-end">Saldo a favor:</td>
+                <td class="text-end" style="text-decoration: underline">
+                  - @@SALDOFAVOR
+                </td>
+              </tr>
+              <tr>
+                <td class="text-end" style="color: green">Total a cobrar:</td>
+                <td class="text-end">= @@TOTALACOBRAR</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-table mb-1" style="width: 100%;">
+      <div class="d-table-row" style="width: 100%;">
+        <div class="d-table-cell text-center" style="width: 100%; height: 100%">
+          <div class="rcorners imageDIV" style="min-height: 20.5rem;position: relative;">
+            <div class="content-overlay">
+              @@datosImproductivas
+               </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-table mb-1" style="width: 100%;">
+      <div class="d-table-row" style="width: 100%;">
+        <div class="d-table-cell text-center" style="width: 48%">
+          <div class="rcorners text-center" style="min-height: 7.5rem;">
+            <h6><strong>OXXO CONEKTA:</strong></h6>
+            <div>
+              <table style="width: 100%;table-layout: fixed;">
+
+                <body>
+                  <tr>
+                    <td style="text-align: center; width: 50%;"> <img style="max-height: 120px; max-width: 120px"
+                        src="https://@@SERVER/pdf/image--0042.png" />
+                    </td>
+                    <td style="text-align: right; width: 50%;"> <img style="max-height: 120px; max-width: 140px"
+                        src="https://@@SERVER/pdf/ImageBarcode/@@REFOXXOCODE" />
+                    </td>
+                  </tr>
+                </body>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="d-table-cell text-center" style="width: 4%"></div>
+        <div class="d-table-cell text-center" style="width: 48%">
+          <div class="rcorners text-center" style="min-height: 7.5rem;">
+            @@INTERPOLARSPEI
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-table" style="width: 100%">
+      <div class="d-table-row" style="width: 100%">
+        <div class="d-table-cell text-center" style="width: 80%">
+          <div class="rcorners">
+            <div class="d-table" style="width: 100%;margin: 0;">
+              <div class="d-table-row">
+                <div class="d-table-cell text-center" style="width: 100%; height: 100%">
+                  <table class="table" style="border: #ffffff; height: 100%; font-size:11px;">
+                    <tbody>
+                      <tr style="border-bottom: 1px dotted black;">
+                        <td>
+                          <strong>SUCURSALES Y CAJEROS BANCOMER</strong>
+                        </td>
+                        <td>
+                          <strong>BANCO: BANCOMER</strong>
+                        </td>
+                        <td>
+                          <strong>CONTRATO CIE: @@CONTRATO_CIE</strong>
+                        </td>
+                        <td style="font-size: .75rem;"><strong>Referencia: @@REF_BANCOMER</strong></th>
+                      </tr>
+                      <tr style="border-bottom: 1px dotted black;">
+                        <td class="text-center"><strong>SUCURSALES DE LA EMPRESA</strong></td>
+                        <td colspan="3" class="text-center"><strong>EN HORARIO DE 8:30 A 18:00 HORAS DE LUN A VIER Y
+                            SABADO DE 8:30 A 14:00 P.M</strong></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="d-table" style="width: 100%;margin: 0;">
+              <div class="d-table-row">
+                <div class="d-table-cell " style="vertical-align: top;">
+                  <table class="table" style="border: #ffffff; margin: 0;">
+                    <tbody>
+                      <tr>
+                        <td class="text-center" style="padding: .2rem;margin: 0;">
+                          <img style="max-height: 80px; max-width: 95px" src="https://@@SERVER/pdf/LogoImg/@@LOGO" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center" style="padding: .2rem;margin: 0;">
+                          <img style="max-height: 80px; max-width: 95px" src="https://@@SERVER/pdf/image-011.jpg" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center" style="padding: .2rem;margin: 0;">
+                          <img style="max-height: 80px; max-width: 95px" src="https://@@SERVER/pdf/image-009.jpg" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center" style="padding: .2rem;margin: 0;">
+                          <img style="max-height: 80px; max-width: 95px" src="https://@@SERVER/pdf/image-010.jpg" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center" style="padding: .2rem;margin: 0;">
+                          <img style="max-height: 80px; max-width: 95px" src="https://@@SERVER/pdf/image-007.jpg" />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="d-table-cell " style="vertical-align: top;">
+                  <p class="card-text text-center" style="font-size: 0.75rem;">
+                    <strong>
+                      Importante Mencionar al cajero que realizar&aacute;s
+                      un pago por el sistema de ClubPago.
+                      <br />
+                      Horario<br />
+                      Lunes a Viernes: 8:30 a 17:00HRS.
+                      <br />
+                      S&aacute;bado: 8:00 a 14:00HRS.
+                      <br />
+                      Atenci&oacute;n a clientes<br />
+                      01-800-386-63-42
+                      <br />
+                      Conserva su ticket de pago, para cualquier
+                      aclaraci&oacute;n.<br />
+                      Importe m&aacute;ximo de pago $10,000.00 por
+                      transacci&oacute;n.<br />
+                      Comisi&oacute;n por transacci&oacute;n de $16.00
+                      adicional a su pago.<br />
+                    </strong>
+                  </p>
+                </div>
+                <div class="d-table-cell " style="vertical-align: top;">
+                  <table class="table" style="border: #ffffff; margin: 0;">
+                    <tbody>
+                      <tr>
+                        <td class="text-center" style="padding: .2rem;margin: 0;">
+                          <img style="max-height: 115px; max-width: 105px" src="https://@@SERVER/pdf/image-005.jpg" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center" style="padding: .2rem;margin: 0;">
+                          <img style="width: 275px" src="https://@@SERVER/pdf/ImageBarcode/@@REF_SORIANA" />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td class="text-center" style="padding: .2rem;margin: 0;">
+                          <img style="max-height: 115px; max-width: 105px" src="https://@@SERVER/pdf/image-006.jpg" />
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-table-cell text-center" style="width: 1%"></div>
+        <div class="d-table-cell text-center" style="width: 19%; font-size: 12px">
+          <p style="font-weight: bolder; text-align: justify">
+            <strong style="color: red">*Nota: </strong> No olvides revisar muy
+            bien tus datos de referencia al momento de pagar para validar la
+            informaci&oacute;n.
+          </p>
+          <p style="font-weight: bolder; text-align: justify">
+            <strong style="color: red">*Nota: </strong> Recuerda que esta es
+            tu relaci&oacute;n de cobro y es confidencial, evita compartir
+            informaci&oacute;n con terceros y asegurate de solicitar un
+            comprobante oficial, como folio o un ticket digital al colaborador
+            antes de entregar cualquier pago.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="imagediv2" style="width: 100%">
+      <div class="content-overlay">
+        @@datosCancun2025
+      </div>
+  </div>
+</body>
+
+</html>

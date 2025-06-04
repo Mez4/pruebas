@@ -1,0 +1,176 @@
+﻿<html>
+
+<head>
+    <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor">
+    <!--<link href="https://@@SERVER/pdf/Relacion.Caratula.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/Relacion.Caratula.css" rel="stylesheet" id="bootstrapServidor">-->
+    <!--<style type="text/css">
+        table {
+            page-break-inside: auto;
+            border: none;
+        }
+
+        div {
+            page-break-inside: avoid;
+        }
+        /* This is the key */
+        thead {
+            display: table-header-group
+        }
+
+        tfoot {
+            display: table-footer-group
+        }
+    </style>-->
+    <style type="text/css">
+        .signature {
+            border: 0;
+            border-bottom: 1px solid #000;
+        }
+
+        .signature_div {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            width: 100%;
+            border-spacing: 10px;
+        }
+
+        .Column {
+            text-align: center;
+        }
+
+        table {
+            page-break-inside: auto
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto
+        }
+
+        thead {
+            display: table-header-group
+        }
+
+        tfoot {
+            display: table-footer-group
+        }
+
+        .rcorners {
+            border-radius: 25px;
+            border: 2px solid #000000;
+            padding: 20px;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+    <div style="margin: 10px;">
+        <div class="container">
+            <div className="columns is-centered">
+                <div className="column is-align-items-center is-full">
+                    <strong>
+                        <li>
+                            MOVIMIENTOS DEL SISTEMA
+                        </li>
+                    </strong>
+                </div>
+            </div>
+            <br>
+            <div className="columns is-centered is-mobile is-multiline">
+
+                <div className="column is-align-items-center is-full">
+                    <!--<div class="table-responsive">-->
+                    <table class="table table-sm" style="border: #ffffff;">
+                        <thead>
+                            <tr>
+                                <!--<th class="text-center fs-6" scope="col">Sucursal</th>-->
+                                <th class="text-center fs-6" scope="col">Cuenta</th>
+                                <th class="text-center fs-6" scope="col">Producto</th>
+                                <th class="text-center fs-6" scope="col">Desc Mov</th>
+                                <th class="text-center fs-6" scope="col">Total</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--style="page-break-before:always;"-->
+                            @@MOVS_SISTEMA
+                        </tbody>
+                        @@FOOTER_MOVS_SISTEMA
+                    </table>
+                    <!--</div>-->
+                </div>
+            </div>
+            <div className="columns is-centered">
+                <div className="column is-align-items-center is-full">
+                    <strong>
+                        <li>
+                            TOTALES
+                        </li>
+                    </strong>
+                </div>
+            </div>
+            <br>
+            <div className="columns is-centered is-mobile is-multiline">
+
+                <div className="column is-align-items-center is-full">
+                    <!--<div class="table-responsive">-->
+                    <table class="table table-sm" style="border: #ffffff;">
+                        <thead>
+                            <tr>
+                                <!--<th class="text-center fs-6" scope="col">Sucursal</th>-->
+                                <th class="text-center fs-6" scope="col"></th>
+                                <th class="text-center fs-6" scope="col"></th>
+                                <th class="text-center fs-6" scope="col"> </th>
+                                <th class="text-center fs-6" scope="col"></th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center fs-4"></td>
+                                <td class="text-center fs-4"></td>
+                                <td class="text-center fs-4">Total Sistema:</td>
+                                <td class="text-center fs-4"> @@TOTAL_SISTEMA_FINAL</td>
+                            </tr>
+                            <tr>
+                                <td class="text-center fs-4"></td>
+                                <td class="text-center fs-4"></td>
+                                <td class="text-center fs-4">Total F&iacute;sico:</td>
+                                <td class="text-center fs-4"> @@TOTAL_FISICO_FINAL</td>
+                            </tr>
+                        </tbody>
+                        @@FOOTER_DIFERENCIA
+                    </table>
+                    <!--</div>-->
+                </div <br>
+                <br>
+                <br>
+                <div class="signature_div">
+                    <div class="Column">
+                    </div>
+
+                    <div class="Column">
+                        <input type="text" class="signature" /><br /> Firma Cajera(o):
+                    </div>
+
+                    <div class="Column">
+                        <input type="text" class="signature" /><br /> Firma Arqueo:
+                    </div>
+                    <div class="Column">
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</body>
+
+</html>

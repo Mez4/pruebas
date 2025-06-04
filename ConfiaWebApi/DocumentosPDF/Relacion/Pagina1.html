@@ -1,0 +1,93 @@
+﻿<html>
+
+<head>
+    <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor">
+    <!--<link href="https://@@SERVER/pdf/Relacion.Caratula.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/Relacion.Caratula.css" rel="stylesheet" id="bootstrapServidor">-->
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .divd::before {
+            content: "";
+            width: 400px;
+            height: 400px;
+            background: url('https://@@SERVER/pdf/LogoImg/@@LOGO');
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            position: absolute;
+            2 opacity: 0.3;
+            left: 50%;
+            margin-left: -200px;
+        }
+
+        .rcorners {
+            border-radius: 25px;
+            border: 2px solid #000000;
+            padding: 20px;
+            width: 100%;
+            height: auto;
+        }
+
+        #apDiv1 {
+            position: absolute;
+            left: 710px;
+            top: 605px;
+            width: 122px;
+            height: 100px;
+            text-align: center;
+            line-height: 45px;
+            z-index: 2;
+        }
+
+        #apDiv2 {
+            position: absolute;
+            left: 717px;
+            top: 627px;
+            width: 122px;
+            height: 100px;
+            text-align: center;
+            line-height: 45px;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+    <div style="margin: 10px;">
+        <div class="container">
+            <div class="row m-0 mb-2 d-table-row ">
+                <div class="col-sm-6 text-center ps-3 pe-3 w-50 d-table-cell">
+                    <div class="rcorners">
+                        <figure class="figure">
+                            <img class="img-fluid rounded" src="https://@@SERVER/pdf/image-002.jpg" />
+                        </figure>
+                    </div>
+                </div>
+                <!--<div class="col-1"></div>-->
+                <div class="col-sm-6 text-center align-text-top ps-3 pe-3 w-50 d-table-cell rcorners">
+                    <h3><strong>Informaci&oacute;n Importante</strong></h3>
+                </div>
+            </div>
+            <br />
+            <div class="row m-0 mb-2 d-table-row">
+                <div class="col-sm-5 text-center ps-3 pe-3 w-50 d-table-cell">
+                    <div class="rcorners">
+                        <figure class="figure">
+                            <img class="img-fluid rounded" src="https://@@SERVER/pdf/image-001.jpg" />
+                        </figure>
+                    </div>
+                </div>
+            </div>
+            <div id="apDiv1">C@@ID_DIST</div>
+            <div id="apDiv2">CR-U2L44M34</div>
+        </div>
+    </div>
+</body>
+
+</html>

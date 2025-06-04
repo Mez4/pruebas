@@ -1,0 +1,245 @@
+import React from 'react'
+import DataTable, { IDataTableColumn } from 'react-data-table-component'
+import { connect } from 'react-redux'
+import { IEstado } from '../../../../../interfaces/redux/IEstado'
+import { IOidc } from '../../../../../interfaces/oidc/IOidc'
+import ModalWin, { MODAL_TITLE_CLASS } from '../../../../global/ModalWin'
+import * as Funciones from './CatalogoEncargados/Funciones'
+
+//import * as FnCatTipoDocumento from '../../catalogos/CompCatalogos/CatalogoDirectores/Funciones'
+
+// Icons
+import { FaPencilAlt, FaPlus, FaSearch, FaCircle } from 'react-icons/fa'
+
+// Custom components
+import { Card, Spinner } from '../../../../global'
+import { CFormConfirmar } from './CatalogoEncargados/CFormConfirmar'
+import { FiRefreshCcw } from 'react-icons/fi'
+import { FiltrarDatos } from '../../../../../global/functions'
+import { PropsNotForwarded } from '../../../../../node_modules_local/react-csv/lib/metaProps'
+import { toast } from 'react-toastify'
+
+type CatalogosType = {
+    oidc: IOidc
+}
+
+const CatalogoEncargados = (props: CatalogosType) => {
+    // Controll our mounted state
+    let isMounted = React.useRef(true)
+
+    const DatosDefecto = { DirectorMesaCobranzaID: 0, Activo: true }
+    const Datos: any[] = []
+    const DatosMostrar: any[] = []
+    const optProdMesa: any[] = []
+    const optPersonas: any[] = []
+    const [state, setState] = React.useState({
+        Datos,
+        DatosMostrar,
+        optProdMesa,
+        optPersonas,
+        Filtro: '',
+        Cargando: true,
+        Error: false,
+        Form:
+        {
+            Mostrar: false,
+            Datos: DatosDefecto,
+            Id: undefined
+        }
+    })
+
+    const FNGetLocal = () => {
+
+        setState(s => ({ ...s, Cargando: true }))
+        Funciones.FNGet(props.oidc)
+            .then((respuesta: any) => {
+                if (isMounted.current === true) {
+                    setState(s => ({ ...s, Cargando: false, Error: false, Datos: respuesta }))
+                }
+            })
+            .catch(() => {
+                if (isMounted.current === true) {
+                    setState(s => ({ ...s, Cargando: false, Error: true, Datos: [] }))
+                }
+            })
+    }
+
+    const FnGetPersonas = () => {
+        setState(s => ({ ...s }))
+        Funciones.FnGetEncargados(props.oidc)
+            .then((respuesta: any) => {
+                var sucursales = respuesta.map((valor: any) => {
+                    var obj = { value: valor.PersonaID, label: valor.NombreCompleto };
+                    return obj
+
+                });
+
+                setState(s => ({ ...s, optPersonas: sucursales }))
+            })
+            .catch(() => {
+                setState(s => ({ ...s, optPersonas: [] }))
+            })
+    }
+
+
+
+    const Columns = React.useMemo(() => {
+
+        let colRet: IDataTableColumn[] =
+            [
+                {
+                    name: 'Id',
+                    selector: 'DirectorMesaCobranzaID',
+                    sortable: true,
+                    // width:'30%'
+                },
+                {
+                    name: 'Nombre Completo',
+                    selector: 'NombreCompleto',
+                    sortable: true,
+                    // center: true,
+                    cell: (props) =>
+
+                        <span >
+                            {props.NombreCompleto}
+                        </span>
+                },
+                {
+                    name: 'Activo',
+                    selector: 'Activo',
+                    sortable: true,
+                    center: true,
+                    cell: (props) => <span>{props.Activo ? <FaCircle color="green" title="Activo" /> : <FaCircle color="red" title="Inactivo" />}</span>
+                },
+                // {
+                //     name: 'Mesa Cobranza',
+                //     selector: 'mesaCobranza',
+                //     sortable: true,
+                // cell: (props) =>
+
+                //     <span >
+                //         {props.mesaCredito.Nombre}
+                //     </span>
+                // },
+            ]
+        return colRet
+    }, [state.Form])
+
+    // Use effect
+    React.useEffect(() => {
+        FNGetLocal()
+        //FnGetMesaCobranza()
+        FnGetPersonas()
+        return () => {
+            isMounted.current = false
+        }
+        // eslint-disable-next-line
+    }, [])
+
+    // On use effect
+    React.useEffect(() => {
+        setState(s => ({ ...s, DatosMostrar: FiltrarDatos(s.Datos, Columns, state.Filtro) }))
+        // eslint-disable-next-line
+    }, [state.Datos, state.Filtro])
+
+    // /** funcion Callback al agregar un item */
+    const cbAgregar = (item: any) => {
+        setState({ ...state, Datos: [...state.Datos, item], Form: { ...state.Form, Mostrar: false, Datos: { DirectorMesaCobranzaID: 0, Activo: false } } })
+    }
+
+    // /** funcion Callback al actualizar un item */
+    const cbActualizar = (item: any) =>
+        setState({ ...state, Datos: state.Datos.map(Dato => Dato.DirectorMesaCobranzaID === item.DirectorMesaCobranzaID ? item : Dato), Form: { ...state.Form, Mostrar: false, Datos: { DirectorMesaCobranzaID: 0, Activo: false } } })
+    /** funcion para cancelar la forma */
+    const fnCancelar = () => setState({ ...state, Form: { ...state.Form, Mostrar: false } })
+
+    const fnCFormConfirmar = () => setState({ ...state, Form: { ...state.Form, Mostrar: true } })
+
+    const fnValidacion = () => {
+        Funciones.FNValidacionValidacionAltaEncargados(props.oidc)
+            .then((respuesta: any) => {
+                setState({ ...state, Form: { Mostrar: true, Datos: DatosDefecto, Id: undefined } })
+            })
+            .catch((error: any) => {
+                if (error.response)
+                    toast.error(`Response Error: ${error.response.data}`)
+                else if (error.request)
+                    toast.error(`Request ${error}`)
+                else
+                    toast.error(`${error}`)
+            })
+    }
+
+    return (
+        <div className="row">
+            <div className="col-12">
+                <Card Title="ENCARGADOS DE COBRANZA">
+                    <Card.Body>
+                        <Card.Body.Content>
+                            {state.Cargando && <Spinner />}
+                            {state.Error && <span>Error al cargar los datos...</span>}
+                            {!state.Cargando && !state.Error &&
+                                <div>
+                                    <DataTable
+                                        subHeader
+                                        subHeaderComponent=
+                                        {
+                                            <div className="row">
+                                                <div className="col-sm-12">
+                                                    <div className="input-group mb-3">
+                                                        <input type="text" className="form-control" placeholder="Buscar Encargado" value={state.Filtro} onChange={e => setState(s => ({ ...s, Filtro: e.target.value }))} />
+                                                        <span className="input-group-text"><FaSearch /> </span>
+                                                        <button className="btn btn-outline-secondary" type="button"
+                                                            onClick={() => fnValidacion()}
+                                                        ><FaPlus /></button>
+                                                        <button className="btn btn-outline-secondary" type="button" onClick={() => FNGetLocal()}><FiRefreshCcw /></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        }
+                                        data={state.DatosMostrar}
+                                        striped
+                                        pagination
+                                        dense
+                                        noHeader
+                                        responsive
+                                        keyField={"DirectorMesaCobranzaID"}
+                                        defaultSortField={"DirectorMesaCobranzaID"}
+                                        columns={Columns}
+                                    />
+                                    <ModalWin open={state.Form.Mostrar} center large>
+                                        <ModalWin.Header>
+                                            <h5 className={MODAL_TITLE_CLASS}>AGREGAR ENCARGADO</h5>
+                                        </ModalWin.Header>
+                                        <ModalWin.Body>
+                                            {<CFormConfirmar
+                                                oidc={props.oidc}
+                                                Id={state.Form.Id}
+                                                initialValues={state.Form.Datos}
+                                                optEncargado={state.optPersonas}
+                                                cbGuardar={cbAgregar}
+                                                fnCancelar={fnCancelar}
+                                                cbActualizar={cbActualizar}
+                                                fnCFormConfirmar={fnCFormConfirmar}
+                                                FNGetLocal={FNGetLocal}
+                                            />}
+                                        </ModalWin.Body>
+                                    </ModalWin>
+                                </div>
+                            }
+                        </Card.Body.Content>
+                    </Card.Body>
+                </Card>
+            </div>
+        </div >
+    )
+}
+
+const mapStateToProps = (state: IEstado) => ({
+    oidc: state.oidc
+})
+
+const mapDispatchToProps = {
+
+}
+export default connect(mapStateToProps, mapDispatchToProps)(CatalogoEncargados);

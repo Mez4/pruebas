@@ -1,0 +1,6 @@
+export { default as CatalogoClasificador } from './CatalogoClasificador'
+export { default as CatalogoMotivos } from './CatalogoMotivos'
+export { default as CatalogoTabDiasMora } from './CatalogoTabDiasMora'
+export { default as RelacionMesaCobranza } from './RelacionMesaCreditoProducto'
+export { default as Bitacora } from './Bitacora'
+export { default as CarteraGestores} from './CarteraGestores'

@@ -1,0 +1,448 @@
+<html>
+
+<head>
+    <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor">
+
+    <style type="text/css">
+        .a1 {
+            height: 200px;
+            width: 1px;
+            display: inline;
+            border-left: 1px dotted red;
+        }
+        tr {
+            font-size: 10px !important;
+        }
+        table th {
+            max-height: 50px;
+            height: 50px !important;
+        }
+        .table-column {
+            margin: 0px 50px 50px 0px !important;
+        }
+        /* .nombre {
+            width: 10%;
+             font-size: px !important; 
+        }
+
+        .titulos {
+            font-size: 13px !important;
+        }
+    }
+
+
+        /* table {
+            page-break-inside: auto;
+            border-bottom: 1px solid black;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto
+        } */
+
+        /* thead {
+            display: table-header-group
+        }
+
+        tfoot {
+            display: table-footer-group
+        } */
+
+        /* .rcorners {
+            border-radius: 25px;
+            border: 2px solid #000000;
+            padding: 20px;
+            width: 100%;
+            height: auto;
+        }
+
+        td {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+
+        }
+
+        th {
+            border: 1px solid black;
+        }
+
+        tr:last-child td {
+            border-bottom: 1px solid black;
+
+          
+        } */
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa; /* Color de fondo para visualizar el Ã¡rea */
+            padding: 10px;
+        }
+
+        
+
+        
+    </style>
+
+</head>
+
+    <body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" class="text-uppercase" >
+
+        
+        <div class="container" >
+            <div class="d-table" >
+                <div>
+
+                    <div class="row align-items-center justify-content-between">
+                        <!-- Columna para el título "BALANCE DE RESULTADOS" centrado -->
+                            <h1><strong>BALANCE DE RESULTADOS:</strong> @@NOMBRE_BALANCE</h1>
+                    </div>
+                </div>
+                <div class="row justify-content-center" style="padding-top: 0 !important;">
+                    <div class="col-sm-4 text-center ps-3 pe-3" style="padding-left: 8% !important;">
+                        <figure class="figure">
+                            <img style="max-height: 90px; max-width: 180px" src="https://@@SERVER/pdf/@@IMG" />
+                            <br />
+                        </figure>
+                    </div>
+                </div>   
+                    
+                <!--     <div class="col-sm-4 text-center ps-3 pe-3">
+                        <div class="d-flex align-items-center justify-content-center" style="height: 100%;">
+                            <figure class="figure">
+                                <h5><strong>Nombre del balance:</strong></h5>
+                                <h5><strong>@@NOMBRE_BALANCE</strong></h5>
+                            </figure>
+                        </div>
+                    </div>
+                 -->             
+                <div class="d-table-row" >
+                    <!-- Inicio de parte izquierda -->
+                    <div class="d-table-cell" >
+                        <div class="m-4" >
+                            <div class="row justify-content-center"  >
+                                <div class="text-center" >
+                                    <div class="fw-bold" style="border: 1px solid black; width: 650px; height: 30px; margin-left: 25px;">
+                                        <p class="fw-bold" style="margin-top: 0px; text-align: center; font-size: 17px;">CUENTAS</p>   
+                                    </div>   
+                                    <div class="" style="text-align: center; width: 575px; margin-left: 25px; margin-top: 10px;">
+                                       @@CUENTA
+                                    </div> 
+                                </div >
+                            </div >
+                            <div class="fw-bold" style="border: 1px solid black; width: 650px; height: 30px; margin-left: 25px;">
+                                <p class="fw-bold" style="margin-top: 0px; text-align: center; font-size: 17px;">TOTAL CUENTAS: @@TBANCOS</p>   
+                            </div> 
+                        </div> 
+                        <!-- Inicio de parte derecha -->
+                        <div class="d-table">
+                            <div class="d-table-row class-m4">
+                                <div class="d-table-row-justify-content-center">
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <h6 class="fw-bold" style="margin-top: 10px; text-align: center;">BALANCE</h6>   
+                                    </div>   
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <br>
+                                    </div> 
+
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <br>
+                                    </div>
+
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <p class="d-inline" style="margin-left: -200px;">BALANCE ANTERIOR </p>
+                                        <p class="d-inline" style="margin-left: 450px;">@@BALANCEANTERIOR</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 380px;">@@TANTERIOR</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 380px;">@@TANTERIOR</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 380px;">@@TANTERIOR</p>
+                                    </div>  
+                    
+
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <h6 class="fw-bold" style="margin-top: 10px; text-align: center;">CANCELACIONES</h6>   
+                                    </div>
+
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <br>
+                                    </div>
+                                    <div class="text-center d-inline" style="margin-left: 140px;">
+                                        <p class="d-inline" >@@CANCELACIONES</p>
+                                    </div> 
+                                    <br>
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 440px;">
+                                        </div>  
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALCANCELACIONES</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALCANCELACIONES</p>
+                                    </div>  
+
+                                    <!-- DEPOSITOS -->
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <h6 class="fw-bold" style="margin-top: 10px; text-align: center;">DEPOSITOS</h6>   
+                                    </div>  
+
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <br>
+                                    </div>  
+                                    <div class="text-center d-inline" style="margin-left: 195px;">
+                                        <p class="d-inline" >@@DEPOSITOS</p>
+                                    </div>
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 440px;">
+                                        </div>  
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALDEPOSITOS</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALDEPOSITOS</p>
+                                    </div>
+
+                                    <!-- DEPOSITOS NO IDENTIFICADOS -->
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <h6 class="fw-bold" style="margin-top: 10px; text-align: center;">DEPOSITOS NO IDENTIFICADOS</h6>   
+                                    </div>
+
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <br>
+                                    </div>
+                                    <div class="text-center d-inline" style="margin-left: 195px;">
+                                        <p class="d-inline" >@@DNI</p>
+                                    </div> 
+                                    <br>
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 440px;">
+                                        </div>  
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALDNI</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALDNI</p>
+                                    </div>  
+
+                                    <!-- DESEMBOLSOS VALES. -->
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <h6 class="fw-bold" style="margin-top: 10px; text-align: center;">DESEMBOLSOS VALES</h6>   
+                                    </div>
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <br>
+                                    </div>
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@DESEMBOLSOVALES</p>
+                                    </div> 
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 440px;">
+                                        </div>  
+                                        <p class="d-inline " style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALDV</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALDV</p>
+                                    </div>  
+
+                                    <!-- NUEVAS VENTAS -->
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <h6 class="fw-bold" style="margin-top: 10px; text-align: center;">NUEVOS PRESTAMOS DE SOCIA</h6>   
+                                    </div>
+
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <h6 class="fW-bold" style="margin-top: 0px; text-align: center;"> </h6>
+                                    </div>
+                                    <div class="text-center d-inline" style="margin-left: 195px;">
+                                        <p class="d-inline" >@@NUEVASVENTAS</p>
+                                    </div> 
+                                    <br>
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 440px;">
+                                        </div>  
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALNV</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALNV</p>
+                                    </div>  
+                                                                  
+                                     <!-- TIENDITA -5, 20 DEL MES VALES -->
+                                     <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <h6 class="fW-bold" style="margin-top: 10px; text-align: center;"> CREDITOS TIENDITA DV</h6>
+                                    </div>  
+
+                                    <div class="text-center d-inline" style="margin-left: 195px;">
+                                        <p class="d-inline" >@@TIENDITA</p>
+                                    </div> 
+                                    <br>
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 440px;">
+                                        </div>  
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TTDTA</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TTDTA</p>
+                                    </div>  
+
+                                     <!-- NUEVOS VALES-->
+                                    <!-- <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                    <h6 class="fw-bold" style="margin-top: 10px; text-align: center;">NUEVOS VALES</h6>   
+                                    </div>
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <br>
+                                    </div>
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@NUEVOSVALES</p>
+                                    </div> 
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 450px;">
+                                        </div>  
+                                        <p class="d-inline " style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">0.00</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">0.00</p>
+                                    </div>   -->
+
+                                     <!-- RETIROS-->
+                                     <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <h6 class="fw-bold" style="margin-top: 10px; text-align: center;">RETIROS</h6>   
+                                    </div>
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <br>
+                                    </div>
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@RETIROS</p>
+                                    </div> 
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 440px;">
+                                        </div>  
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALRETIROS</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALRETIROS</p>
+
+                                    </div>  
+
+                                     <!-- RETIROS POR TRASPASO -->
+                                     <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <h6 class="fw-bold" style="margin-top: 10px; text-align: center;">RETIROS POR TRASPASO</h6>   
+                                    </div>  
+
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <br>
+                                    </div>  
+                                    <div class="text-center d-inline-block" style="margin-left: 195px;">
+                                        <p class="d-inline" >@@RXT</p>
+                                    </div>
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 440px;">
+                                        </div>  
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALRXT</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALRXT</p>
+                                    </div>
+
+                                     <!-- USV DISTRIBUIDORES-->
+                                     <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <h6 class="fw-bold" style="margin-top: 10px; text-align: center;">PROTECCIONES DISTRIBUIDORES</h6>   
+                                    </div>
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <br>
+                                    </div>
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@USV</p>
+                                    </div> 
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 440px;">
+                                        </div>  
+                                        <p class="d-inline " style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALUSV</p>
+                                        <p class="d-inline" style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TOTALUSV</p>
+                                    </div>  
+
+                                    <!-- TOTAL -->
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 680px; margin-left: 145px;">
+                                        <br>
+                                    </div>
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@TOTAL</p>
+                                    </div> 
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <!-- <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 450px;">
+                                        </div>  
+                                        <p class="d-inline " style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@SUMA</p> -->
+                                    </div>  
+
+                                    <br>
+                                    <br>
+
+
+
+                                    <br>    
+                                    <!-- SALDO CUENTAS -->
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@SALDOCUENTAS</p>
+                                    </div> 
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <!-- <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 450px;">
+                                        </div>   -->
+                                        <!-- <p class="d-inline " style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@SASALDOC</p> -->
+                                    </div> 
+
+                                   
+
+                                    <!-- SALDO BANCOS -->
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@SBANCOS</p>
+                                    </div> 
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <!-- <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 450px;">
+                                        </div>   -->
+                                        <!-- <p class="d-inline " style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TLBANCOS</p> -->
+                                    </div> 
+                                    <div class="fw-bold" style="border-bottom: 2px solid black; width: 90px; margin-left: 710px;">
+                                    </div>
+                                    
+                                    <!-- SUMA DE CXC Y SB -->
+                                    <div class="text-center d-inline-block" style="margin-left: 710px;">
+                                        <p class="d-inline" >@@TCB</p>
+                                    </div> 
+
+                                    <br>
+
+                                    <br>
+
+                                    <!-- RESULTADO BALANCE -->
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@RESULTADOB</p>
+                                    </div> 
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <!-- <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 450px;">
+                                        </div>   -->
+                                        <!-- <p class="d-inline " style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TLBANCOS</p> -->
+                                    </div> 
+                                    
+                                    <br>
+
+                                    <!-- DIFERENCIA -->
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@DIFERENCIA</p>
+                                    </div> 
+                                    <div class="text-center d-inline-block" style="margin-left: 300px;">
+                                        <!-- <div class="fw-bold" style="border-bottom: 1px solid black; width: 75px; margin-left: 450px;">
+                                        </div>   -->
+                                        <!-- <p class="d-inline " style="border-bottom: 1px solid; font-weight: bold; margin-left: 400px;">@@TLBANCOS</p> -->
+                                    </div> 
+
+                                    <br>
+                                    <br>
+                                    <!-- CLASIFICACIÃ“N DE CARTERA -->
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@CLASIFICACION</p>
+                                    </div> 
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 650px; margin-left: 150px;">
+                                    </div>
+                                        <!-- <p class="d-inline" >@@CARTERAVENCIDA</p> -->
+
+                                    <!-- <div class="text-center d-inline-block" style="margin-left: -50px;"> -->
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@CVENCIDA</p>
+                                        <p class="d-inline" >@@NORMAL</p>
+                                    </div> 
+                                    <div class="fw-bold" style="border-bottom: 1px solid black; width: 650px; margin-left: 150px;">
+                                    </div>
+                                    <div class="text-center d-inline-block" style="margin-left: 210px;">
+                                        <p class="d-inline" >@@NRMAL2</p>
+                                    </div> 
+                                    
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div> 
+            </div> 
+    </body>          
+
+    <br>
+             
+</html>

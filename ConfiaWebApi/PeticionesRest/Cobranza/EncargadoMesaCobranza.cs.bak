@@ -1,0 +1,66 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace ConfiaWebApi.PeticionesRest.Cobranza.EncargadosMesaCobranza
+{
+    public class get
+    {
+        [Range(minimum: 0, maximum: 999999)]
+        public int id { get; set; }
+
+    }
+
+
+      public class add
+    {
+
+        [Required]
+        public int DirectorMesaCobranzaID { get; set; } 
+        
+        [Required]
+        public bool Activo { get; set; }
+
+        public int regresa { get; set; }
+        public string msj { get; set; }
+    }
+
+    public class addPersonaEncargado
+    {
+        public string Nombre { get; set; }
+        public string ApellidoPaterno { get; set; }
+        public string ApellidoMaterno { get; set; }
+        public string FechaNacimiento { get; set; }
+        public string SexoID { get; set; }
+        public string CURP { get; set; }
+        public string RFC { get; set; }
+        public string EstadoCivilID { get; set; }
+        public string NombreConyuge { get; set; }
+        public int EscolaridadID { get; set; }
+        public string TelefonoMovil { get; set; }
+        public string CorreoElectronico { get; set; }
+        public string LugarNacimiento { get; set; }
+        public int AsentamientoID { get; set; }
+        public string Calle { get; set; }
+        public string NumeroExterior { get; set; }
+        public string TelefonoDomicilio { get; set; }
+        public string Observaciones { get; set; }
+        public int identificacionTipoId { get; set; }
+        public string identificacionNumero { get; set; }
+        public int vialidadTipoId { get; set; }
+        public int orientacionVialidadTipoId { get; set; }
+        public int viviendaTipoId { get; set; }
+        public int regresa { get; set; }
+        public string msj { get; set; }
+    }
+
+    public class ValidacionAltaEncargados
+    {
+        public int regresa { get; set; }
+        public string msj { get; set; }
+
+    }
+
+}

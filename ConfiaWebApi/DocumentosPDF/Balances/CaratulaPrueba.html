@@ -1,0 +1,233 @@
+<html>
+
+<head>
+    <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor">
+
+    <style type="text/css">
+        .a1 {
+            height: 200px;
+            width: 1px;
+            display: inline;
+            border-left: 1px dotted red;
+        }
+        tr {
+            font-size: 10px !important;
+        }
+        table th {
+            max-height: 50px;
+            height: 50px !important;
+        }
+        .table-column {
+            margin: 0px 50px 50px 0px !important;
+        }
+        /* .nombre {
+            width: 10%;
+             font-size: px !important; 
+        }
+
+        .titulos {
+            font-size: 13px !important;
+        }
+    }
+
+
+        /* table {
+            page-break-inside: auto;
+            border-bottom: 1px solid black;
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto
+        } */
+
+        /* thead {
+            display: table-header-group
+        }
+
+        tfoot {
+            display: table-footer-group
+        } */
+
+        /* .rcorners {
+            border-radius: 25px;
+            border: 2px solid #000000;
+            padding: 20px;
+            width: 100%;
+            height: auto;
+        }
+
+        td {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+
+        }
+
+        th {
+            border: 1px solid black;
+        }
+
+        tr:last-child td {
+            border-bottom: 1px solid black;
+        } */
+    </style>
+</head>
+
+<body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" class="text-uppercase">
+    <div class="container">
+            <div class="row justify-content-center" >
+                
+                <div class="text-center">
+                    <div class="fs-1 fw-bold">
+                        <h3 class="fw-bold ">CUENTAS POR COBRAR</h3>
+                        <div class="grid"> <!-- Utilizamos flexbox para centrar los h3 horizontalmente -->
+                            <p class="mx-3 fs-2 d-inline">BALANCE DEL MES DE MARZO DEL AÑO 2024</p> <!-- Primer h3 -->
+                            <p class="d-inline">RESPONSABLE: NOMBRE GÉNERICO 2</p> <!-- Segundo h3 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-table">
+                <div class="d-table-row">
+                    <div class="d-table-cell ">
+                        <div class="m-4">
+                            <table class="table table-bordered table-column">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Cliente</th>
+                                        <th class="nombre text-center">Nombre</th>
+                                        <th class="text-center">Plazo</th>
+                                        <th class="text-center">TOT. CONV</th>
+                                        <th class="text-center">SAL. FINAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @@DATOS_PRIMERA
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                    <div class="d-table-cell ">
+                        <div class="m-4">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Cliente</th>
+                                        <th class="nombre text-center">Nombre</th>
+                                        <th class="text-center">Plazo</th>
+                                        <th class="text-center">TOT. CONV</th>
+                                        <th class="text-center">SAL. FINAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @@DATOS_SEGUNDA
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="d-table-cell  ">
+                        <div class="m-4">
+                            <table class="table table-bordered " >
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">Cliente</th>
+                                        <th class="nombre text-center">Nombre</th>
+                                        <th class="text-center">Plazo</th>
+                                        <th class="text-center">TOT. CONV</th>
+                                        <th class="text-center">SAL. FINAL</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @@DATOS_TERCERA
+                                </tbody>
+                        </div>
+                            </table>
+
+                    </div>
+                </div>
+            </div>
+            
+                <!-- <div class="d-table-cell" ">
+                    <div >
+                        <table >
+                            <thead>
+                                <tr style="border: 2px #1F1F1F solid;">
+                                    <th class="text-center"  >Cliente</th>
+                                    <th class=" nombre text-center">Nombre</th>
+                                    <th class=" text-center "  >Plazo</th>
+                                    <th class=" text-center "  >TOT. CONV</th>
+                                    <th class=" text-center " >SAL. FINAL</th>
+                                </tr>
+                            </thead>    
+                            <tbody>
+                               @@DATOS_PRIMERA
+                            </tbody>
+                        </table>
+                    </div>
+                </div> -->
+                <!-- <div class="text-center d-table-cell">
+                 
+                     <div class="" style="">
+                        <table >
+                            <thead>
+                               
+                                <tr style="border: 2px #1F1F1F solid;">
+                                    <th class="titulos text-center"  >Cliente</th>
+                                    <th class="titulos nombre text-center">Nombre</th>
+                                    <th class="titulos text-center"  >Plazo</th>
+                                    <th class="titulos text-center"  >TOT. CONV</th>
+                                    <th class="titulos text-center" >SAL. FINAL</th>
+                                </tr>
+                            </thead>    
+                            <tbody>
+                               @@DATOS_SEGUNDA
+                            </tbody>
+                        </table>
+                    </div>
+                </div> -->
+                <!-- <div class="text-center d-table-cell">
+                    <div class="" style="margin-right: 150px;">
+                        <table >
+                            <thead>
+                                <tr style="border: 2px #1F1F1F solid;">
+                                    <th class="titulos text-center"  >Cliente</th>
+                                    <th class="titulos nombre text-center ">Nombre</th>
+                                    <th class="titulos text-center "  >Plazo</th>
+                                    <th class="titulos text-center "  >TOT. CONV</th>
+                                    <th class="titulos text-center " >SAL. FINAL</th>
+                                </tr>
+                            </thead>    
+                            <tbody>
+                               @@DATOS_TERCERA
+                            </tbody>
+                        </table>
+                    </div>
+                </div> -->
+              
+            
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-4 ">
+                    <p class="fs-5">EMISION: @@IMPRIMIO @@FECHA_PRINT</p>
+                </div>
+                <!-- <div class="col-6"></div> -->
+                <div class="col-4 ">
+                    <p class="fs-4">TOTALES CONVENIO SALIDA 56 49,597,958.72 33,179,064.29</p>
+                </div>
+            </div>
+        </div>
+    </body>
+    
+    <!-- <div class="row" style="position: absolute; bottom: 0;">
+        <div class="col">
+            <figure class="text-start">
+                <blockquote class="blockquote">
+                    <h6>EMISION: @@IMPRIMIO @@FECHA_PRINT</h6>
+                </blockquote>
+            </figure>
+        </div>
+    </div> -->
+</html>

@@ -1,0 +1,371 @@
+<html>
+
+<head>
+    <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor">
+
+    <style type="text/css">
+        .a1 {
+            height: 200px;
+            width: 1px;
+            display: inline;
+            border-left: 1px dotted red;
+        }
+
+        tr {
+            font-size: 10px !important;
+        }
+
+        table th {
+            max-height: 50px;
+            height: 50px !important;
+        }
+
+        .table-column {
+            margin: 0px 50px 50px 0px !important;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            padding: 10px;
+        }
+
+        .columnsContent {
+            vertical-align: top;
+        }
+        h3{
+            line-height: 0;
+        }
+        td{
+            line-height: 1.1;
+        }
+        table.tabCancelaciones, table.tabCancelaciones th, table.tabCancelaciones td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        @media print {
+  .new-page {
+    page-break-before: always;
+  }
+}
+    </style>
+
+</head>
+
+<body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" class="text-uppercase">
+    <div class="container">
+        <div class="d-table">
+            <div>
+                <div class="row align-items-center justify-content-between">
+                    <h2><strong>BALANCE DE RESULTADOS:</strong> @@NOMBRE_BALANCE</h2>
+                </div>
+            </div>
+            <div class="row justify-content-center" style="padding-top: 0 !important;;">
+                <div class="col-sm-4 text-center ps-3 pe-3" style="padding-left: 8% !important;">
+                    <figure class="figure">
+                        <img style="max-height: 90px; max-width: 180px" src="https://@@SERVER/pdf/@@IMG" />
+                    </figure>
+                </div>
+            </div>
+            <table>
+                <tr class="columnsContent">
+                    <td style="padding-right: 10px;">
+                        <div class="row justify-content-center">
+                            <div class="text-center">
+                                <div class="fw-bold" style="border: 1px solid black; width: 650px; height: 30px;">
+                                    <h2 class="fw-bold" style="margin-top: 0px; text-align: center; font-size: 17px; line-height: 1;">
+                                        CUENTAS
+                                    </h2>
+                                </div>
+                                <div style="text-align: center; width: 650px;">
+                                    @@CUENTA
+                                </div>
+                            </div>
+                        </div>
+                        <div class="fw-bold" style="border: 1px solid black; width: 650px; height: 30px; margin-top: 20px;">
+                            <p class="fw-bold" style="margin-top: 0px; text-align: center; font-size: 17px;">
+                                TOTAL CUENTAS: @@TBANCOS
+                            </p>
+                        </div>
+                    </td>
+                    <td style="padding-left: 10px;">
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                BALANCE
+                            </h2>
+                            <table style='width: 100%;'>
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-size: 15px; width: 80%;'>BALANCE ANTERIOR: @@FechaBalanceAnt</td>
+                                    <td class='d-inline' style='font-size: 15px; width: 20%; text-align: right; vertical-align: bottom;'>@@ImporteBalanceAnt</td>
+                                </tr>
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 14px; width: 80%; text-align: right;'> TOTAL BALANCE ANTERIOR</td>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; text-align: right;'>
+                                        <div style='padding-left: 10px;'>
+                                            <div style='border-bottom: 1px solid black;'></div>
+                                        </div>
+                                        <div>@@ImporteBalanceAnt</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                CANCELACIONES
+                            </h2>
+                            <table style='width: 100%;'>
+                                @@RowsCancelaciones
+                                
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 14px; width: 80%; text-align: right;'> TOTAL CANCELACIONES</td>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; text-align: right;'>
+                                        <div style='padding-left: 10px;'>
+                                            <div style='border-bottom: 1px solid black;'></div>
+                                        </div>
+                                        <div>@@ImporteCancelaciones</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                DESEMBOLSOS VALES
+                            </h2>
+                            <table style='width: 100%;'>
+                                @@DesembolsosRows
+                                <!-- <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-size: 14px; width: 80%;'>
+                                        @@DesembolsoFisicoDesc
+                                    </td>
+                                    <td class='d-inline' style='font-size: 14px; width: 20%; text-align: right; vertical-align: bottom;'>
+                                        @@DesembolsoFisicoTotal
+                                    </td>
+                                </tr>
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-size: 14px; width: 80%;'>
+                                        @@DesembolsoDigitalDesc
+                                    </td>
+                                    <td class='d-inline' style='font-size: 14px; width: 20%; text-align: right; vertical-align: bottom;'>
+                                        @@DesembolsoDigitalTotal
+                                    </td>
+                                </tr> -->
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 14px; width: 80%; text-align: right;'> TOTAL CANJES.</td>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; text-align: right;'>
+                                        <div style='padding-left: 10px;'>
+                                            <div style='border-bottom: 1px solid black;'></div>
+                                        </div>
+                                        <div>@@DesembolsoValesTotal</div>
+                                    </td>
+                                </tr>
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-size: 14px; width: 80%;'>
+                                        CAPITAL CANJES + INTERES VALES
+                                    </td>
+                                    <td class='d-inline' style='font-size: 14px; width: 20%; text-align: right; vertical-align: bottom;'>
+                                        @@DesembolsoCapitalTotal
+                                    </td>
+                                </tr>
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 14px; width: 80%; text-align: right;'> TOTAL CANJES + INTERES.</td>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; text-align: right;'>
+                                        <div style='padding-left: 10px;'>
+                                            <div style='border-bottom: 1px solid black;'></div>
+                                        </div>
+                                        <div>@@DesembolsoCapitalTotal</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                DEPOSITOS
+                            </h2>
+                            <table style='width: 100%;'>
+                                @@RowsDepositos
+                                
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 14px; width: 80%; text-align: right;'> TOTAL DEPOSITOS</td>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; text-align: right;'>
+                                        <div style='padding-left: 10px;'>
+                                            <div style='border-bottom: 1px solid black;'></div>
+                                        </div>
+                                        <div>@@ImporteDepositos</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                DEPOSITOS NO IDENTIFICADOS
+                            </h2>
+                            <table style='width: 100%;'>
+                                @@RowsDni
+                                
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 14px; width: 80%; text-align: right;'> TOTAL DNI.</td>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; text-align: right;'>
+                                        <div style='padding-left: 10px;'>
+                                            <div style='border-bottom: 1px solid black;'></div>
+                                        </div>
+                                        <div>@@ImporteDni</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                RETIROS
+                            </h2>
+                            <table style='width: 100%;'>
+                                @@RowsRetiros
+                                
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 14px; width: 80%; text-align: right;'> TOTAL RETIROS.</td>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; text-align: right;'>
+                                        <div style='padding-left: 10px;'>
+                                            <div style='border-bottom: 1px solid black;'></div>
+                                        </div>
+                                        <div>@@ImporteRetiros</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                NUEVOS PRESTAMOS SOCIA
+                            </h2>
+                            <table style='width: 100%;'>
+                                @@RowsNuevosPrestamos
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 14px; width: 80%; text-align: right;'> TOTAL PRESTMOS.</td>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; text-align: right;'>
+                                        <div style='padding-left: 10px;'>
+                                            <div style='border-bottom: 1px solid black;'></div>
+                                        </div>
+                                        <div>@@ImporteNuevosPrestamos</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                CREDITOS TIENDITA
+                            </h2>
+                            <table style='width: 100%;'>
+                                <tr>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 1px; width: 20%;'>SUCURSAL</td>
+                                    <td class='d-inline' style='font-weight: bold; text-align: right; font-size: 14px; width: 20%;'>APROV.</td>
+                                    <td class='d-inline' style='font-weight: bold; text-align: right; font-size: 14px; width: 20%;'>CLIENTE</td>
+                                    <td class='d-inline' style='font-weight: bold; text-align: right; font-size: 14px; width: 20%;'>DISTRIBUIDOR</td>
+                                    <td class='d-inline' style='font-weight: bold; text-align: right; font-size: 14px; width: 20%;'>TOTAL</td>
+                                </tr>
+                                @@RowsTiendita
+                            </table>
+                            <table style='width: 100%;'>
+                                <tr style='justify-content: space-between;'>
+                                    <div style='height: 2px; background-color: black; width: 50%; margin-top: 2px; margin-left: 50%; margin-bottom: 2px;'></div>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 14px; width: 80%; text-align: right;'> TOTAL CREDITOS TIENDITA</td>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; text-align: right;'>@@ImporteTiendita</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                COBRANZA CLIENTE FINAL
+                            </h2>
+                            <table style='width: 100%;'>
+                                <tr>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 1px; width: 31%;'>SUCURSAL</td>
+                                    <td class='d-inline' style='font-weight: bold; text-align: right; font-size: 14px; width: 23%;'>GESTORIA</td>
+                                    <td class='d-inline' style='font-weight: bold; text-align: right; font-size: 14px; width: 23%;'>ORDINARIA</td>
+                                    <td class='d-inline' style='font-weight: bold; text-align: right; font-size: 14px; width: 23%;'>TOTAL</td>
+                                </tr>
+                                @@RowsCobranzaCF
+                            </table>
+                            <table style='width: 100%;'>
+                                <tr style='justify-content: space-between;'>
+                                    <div style='height: 2px; background-color: black; width: 50%; margin-top: 2px; margin-left: 50%; margin-bottom: 2px;'></div>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 14px; width: 80%; text-align: right;'> TOTAL COBRANZA CLIENTE F.</td>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; text-align: right;'>@@ImporteCobranzaCF</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                PROTECCIONES DISTRIBUIDORES
+                            </h2>
+                            <table style='width: 100%;'>
+                                @@RowsProtecciones
+                                <tr style='justify-content: space-between;'>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 14px; width: 80%; text-align: right;'> TOTAL PROTECCIONES.</td>
+                                    <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; text-align: right;'>
+                                        <div style='padding-left: 10px;'>
+                                            <div style='border-bottom: 1px solid black;'></div>
+                                        </div>
+                                        <div>@@ImporteProtecciones</div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                CLASIFICACIÓN DE CARTERA
+                            </h2>
+                            <table style='width: 100%;'>
+                                @@CLASIF_CARTERA
+                            </table>
+                        </div>
+                        <div>
+                            <h2 class="fw-bold" style="text-align: center; font-size: 16px; line-height: 1; padding-bottom: 5px; border-bottom: 1px solid black; width: 650px;">
+                                TOTALES BALANCE
+                            </h2>
+                            <table style='width: 100%;'>
+                                    @@TOTALES_BALANCE
+                            </table>
+                        </div>
+
+                    </td>
+                </tr>
+            </table>
+            <div>
+                <h2 style="width: 100%; text-align: center;">CANCELACIONES</h2>
+                <table style="width: 100%;" class="tabCancelaciones">
+                    <tr>
+                        <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 5%; vertical-align: center;'>CdaID</td>
+                        <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 5%; vertical-align: center;'>DistID</td>
+                        <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 20%; vertical-align: center;'>Nombre Completo</td>
+                        <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 15%; vertical-align: center;'>Tipo Cancelacion</td>
+                        <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 10%; vertical-align: center;'>Usu Can</td>
+                        <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 15%; vertical-align: center;'>Observación</td>
+                        <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 10%; vertical-align: center;'>Importe Can</td>
+                        <td class='d-inline' style='font-weight: bold; font-size: 15px; width: 10%; vertical-align: center;'>Capital Can</td>
+                    </tr>
+                    @@TABLA_CANCELACIONES_DES
+                </table>
+            </div>
+            <div>
+                <h2 style="width: 100%; text-align: center;">DESGLOSE DE GASTOS</h2>
+                <table style="width: 100%;" class="tabCancelaciones">
+                    <thead class="fw-bold ">
+                        <tr class="fw-bold">
+                            <th class="text-center" style="font-size: medium; width: 40px; background: #c0c0c0">UTIL</th>
+                            <th class="text-center" style="font-size: medium; width: 90px; background: #c0c0c0;">FEC/POL</th>
+                            <th class="text-center" style="font-size: medium; width: 300px; background: #c0c0c0;">NOM.CUENTA/ SUCURSAL</th>
+                            <th class="text-center" style="font-size: medium; width: 950px; background: #c0c0c0;">DESCRIPCIÓN</th>
+                            <th class="text-center" style="font-size: medium; width: 200px; background: #c0c0c0;">IMPORTE</th>
+                        </tr>
+                    </thead> 
+                </table>
+                @@TABLA_DESGLOSE_GASTOS
+            </div>
+        </div>
+    </div>
+</body>
+<br>
+
+</html>

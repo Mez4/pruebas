@@ -1,0 +1,313 @@
+<html>
+
+<head>
+    <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor">
+    <!--<link href="https://@@SERVER/pdf/Relacion.Caratula.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/Relacion.Caratula.css" rel="stylesheet" id="bootstrapServidor">-->
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .divd::before {
+            content: "";
+            width: 1200;
+            height: 200;
+            background: url('https://@@SERVER/pdf/LogoImg/@@LOGO');
+            background-repeat: no-repeat;
+            background-position-x: 50px;
+            background-position-y: 140px;
+            position: absolute;
+            opacity: 0.3;
+            left: 50%;
+            margin-left: -200px;
+        }
+
+
+        .rcorners {
+            border-radius: 25px;
+            border: 2px solid #000000;
+            padding: 20px;
+            width: 100%;
+            height: auto;
+        }
+
+        .rcorners2 {
+            border-radius: 25px;
+            border: 2px solid #000000;
+            padding: 5px;
+            width: 650px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+    <div style="margin: 10px;">
+        <div class="container divd">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <figure class="text-center">
+                        <div class="card border-dark mb-1">
+                            <div class="card-header" style="background-color:@@COLOR">
+                                <h2><strong>Tabla Bonificaciones</strong></h2>
+                            </div>
+                        </div>
+                        <table class="table table-sm" style="border: #ffffff;">
+                            <thead>
+                                <tr>
+                                    <th class="text-center fs-10" scope="col" colspan="5"
+                                        style="font-size: x-large; background-color:@@COLOR">
+                                        DINERO
+                                    </th>
+
+                                    <th class="text-center fs-10"></th>
+
+                                    <th class="text-center fs-10" scope="col" colspan="4"
+                                        style="font-size: x-large;background-color:@@COLOR">
+                                        Pago Corresponsales
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="text-center fs-6" style="font-size: larger;">FECHA PAGO</th>
+                                    <th class="text-center fs-8" style="font-size: larger;">IMPORTE</th>
+                                    <th class="text-center fs-8" style="font-size: larger;">%BONIFICACI&Oacute;N</th>
+                                    <th class="text-center fs-8" style="font-size: larger;">BONIFICACI&Oacute;N</th>
+                                    <!--<th class="text-center fs-6">%BONIFICACI&Oacute;N</th>
+                                        <th class="text-center fs-6">BONIFICACI&Oacute;N</th>-->
+                                    <th class="text-center fs-8" style="font-size: larger;">PAGO TOTAL</th>
+                                    <!--th class="text-center fs-8" style="font-size: larger;">Porcentaje</th-->
+                                    <!--th class="text-center fs-8" style="font-size: larger;">Monedero</th-->
+                                    <th class="text-center fs-8" style="font-size: larger;"></th>
+                                    <th class="text-center fs-8" style="font-size: larger;">FECHA PAGO</th>
+                                    <th class="text-center fs-8" style="font-size: larger;">OXXO CONEKTA</th>
+                                    <th class="text-center fs-8" style="font-size: larger;">SORIANA SPEI</th>
+                                    <!--th class="text-center fs-8" style="font-size: larger;">NETCASH</th-->
+                                </tr>
+                                @@TABLA_BONIFICACION
+                            </tbody>
+                        </table>
+                    </figure>
+
+                </div>
+
+                <div style="align-content: center; margin-top: 50px;">
+                    <div class="col-sm-12 d-table-cell">
+
+                        <div class="rcorners">
+                            <figure class="text-center">
+                                <table class="table" style="border: #ffffff;">
+                                    <tbody>
+                                        <div>
+                                            <h2 style="font-size: 22px; text-align: center;">
+                                                <strong>
+                                                    NO DISPONIBLE <br>
+                                                </strong>
+                                            </h2>
+                                        </div>
+                                        <!-- <tr>
+                                            <td class="fs-3 center text-center" style="margin-top: 1px !important;">
+                                                <img style="max-height: 230px; max-width: 230px"
+                                                    src="https://@@SERVER/pdf/LogoImg/@@LOGO" />
+                                            </td>
+                                            <td class="fs-6 center text-center">
+                                                <h10 style="font-size: 28px;"><strong>PAGO OXXO CONEKTA </strong></h10>
+                                                <br>
+                                                <h12 style="font-size: 26px;"><strong>@@ID_DIST - @@NOMBRE_DIST</strong>
+                                                </h12>
+                                            </td>--!
+                                            <td class="text-end fs-3 center text-center"
+                                                style="margin-top: 1px !important;">
+                                                 <img style="max-height: 200px; max-width: 205px"
+                                                src="https://@@SERVER/pdf/image-004.jpg" /> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2" class="text-start fs-3 text-start text-start"
+                                                style="margin-top: 1px !important;">
+                                                <h20 style="font-size: 22px"><strong>
+                                                        -Importe m&aacute;ximo de pago $10,000.00 por
+                                                        transacci&oacute;n. <br>
+                                                        -Comisi&oacute;n por transacci&oacute;n de 19.50 adicional a su
+                                                        pago. <br>
+                                                        Mencionar al cajero que realizaras un pago Conekta. <br>
+                                                    </strong></h20>
+                                            </td>
+                                            <td class="text-start fs-3 text-start text-start"
+                                                style="margin-top: 1px !important;">
+                                                <ul class="list-group list-group-flush">
+                                                     <li class="list-group-item border-white">
+                                                    <img style="max-height: 600px; max-width: 200px"
+                                                        src="https://@@SERVER/pdf/ImageBarcode/@@REFOXXOCODE" />
+                                                </li> 
+                                                </ul>
+                                            </td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+
+                        <div class="rcorners" style="margin-top: 30px;">
+                            <div class="row m-0 mb-1 d-table-row">
+                                <div class="col-sm-12 text-center ps-3 pe-3 w-100 d-table-cell">
+                                    <div>
+                                        <ul class="list-group list-group-flush" style="border: #ffffff;">
+                                            <li class="list-group-item border-dark border-bottom"
+                                                style="border: #ffffff;">
+                                                <div class="row m-0 mb-2 d-table-row">
+                                                    <div class="col-sm-3 text-center ps-3 pe-3 w-25 d-table-cell">
+                                                        <figure class="text-center">
+                                                            <h6 style="font-size: 17px;"><strong>SUCURSALES Y CAJEROS
+                                                                    BANCOMER</strong></h6>
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col-sm-3 text-center ps-3 pe-3 w-25 d-table-cell">
+                                                        <!--<div style="border-left:2px solid #000;height:auto">-->
+                                                        <h6 style="font-size: 17px;"><strong>BANCO: BANCOMER</strong>
+                                                        </h6>
+                                                        <!--</div>-->
+                                                    </div>
+                                                    <div class="col-sm-3 text-center ps-3 pe-3 w-25 d-table-cell">
+                                                        <h6 style="font-size: 17px;"><strong>CONTRATO CIE:
+                                                                @@CONTRATO_CIE</strong></h6>
+                                                    </div>
+                                                    <div class="col-sm-3 text-center ps-3 pe-3 w-25 d-table-cell">
+                                                        <h6 style="font-size: 17px;"><strong>Referencia:
+                                                                @@REF_BANCOMER</strong></h6>
+                                                    </div>
+                                                </div>
+                                            </li>
+
+                                            <li class="list-group-item border-bottom border-dark"
+                                                style="border: #ffffff;">
+                                                <div class="row m-0 mb-2 d-table-row">
+                                                    <div class="col-sm-3 text-center ps-6 pe-6 w-25 d-table-cell">
+                                                        <figure class="text-center">
+                                                            <h6 style="font-size: 17px;"><strong>SUCURSALES DE LA
+                                                                    EMPRESA</strong></h6>
+                                                        </figure>
+                                                    </div>
+                                                    <div class="col-sm-9 text-center ps-6 pe-6 w-75 d-table-cell">
+                                                        <!--<div style="border-left:2px solid #000; height:auto">-->
+                                                        <h6 style="margin: 1em auto; font-size: 17px;"><strong>EN
+                                                                HORARIO DE 8:30 A
+                                                                18:00 HORAS DE
+                                                                LUN A VIER Y SABADO DE 8:30 A 14:00 P.M</strong>
+                                                        </h6>
+                                                        <!--</div>-->
+                                                    </div>
+
+
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="row m-0 mb-1 d-table-row">
+                                    <div class="col-sm-3 text-center ps-3 pe-3 w-25 d-table-cell">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item border-white">
+                                                <img style="max-height: 130px; max-width: 140px"
+                                                    src="https://@@SERVER/pdf/LogoImg/@@LOGO" />
+                                            </li>
+                                            <li class="list-group-item border-white">
+                                                <img style="max-height: 130px; max-width: 140px"
+                                                    src="https://@@SERVER/pdf/image-011.jpg" />
+                                            </li>
+                                            <li class="list-group-item border-white">
+                                                <img style="max-height: 120px; max-width: 140px"
+                                                    src="https://@@SERVER/pdf/image-009.jpg" />
+                                            </li>
+                                            <li class="list-group-item border-white">
+                                                <img style="max-height: 120px; max-width: 140px"
+                                                    src="https://@@SERVER/pdf/image-010.jpg" />
+                                            </li>
+                                            <li class="list-group-item border-white">
+                                                <img style="max-height: 120px; max-width: 140px"
+                                                    src="https://@@SERVER/pdf/image-007.jpg" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-sm-6 text-center ps-3 pe-3 w-25 d-table-cell">
+                                        <p class="card-text text-center">
+                                        <h4 style="font-size: 17px;">
+                                            <strong>
+                                                Importante Mencionar al cajero que realizar&aacute;s un<br>
+                                                pago por el sistema de ClubPago.<br>
+                                                Horario<br>
+                                                Lunes a Viernes: 8:30 a 17:00HRS.<br>
+                                                S&aacute;bado: 8:00 a 14:00HRS.<br>
+                                                <br>
+                                                Atenci&oacute;n a clientes<br>
+                                                01-800-386-63-42<br>
+                                                <br>
+                                                Conserva su ticket de pago, para cualquier<br>
+                                                aclaraci&oacute;n.<br>
+                                                Importe m&aacute;ximo de pago $10,000.00 por transacci&oacute;n.<br>
+                                                Comisi&oacute;n por transacci&oacute;n de $16.00 adicional a su
+                                                pago.<br>
+                                            </strong>
+                                        </h4>
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-3 text-center ps-3 pe-3 w-50 d-table-cell center">
+                                        <figure class="text-center center">
+                                            <h6 style="font-size: 17px;"><strong>C&oacute;digo Referencia</strong></h6>
+                                        </figure>
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item border-white">
+                                                <img style="max-height: 155px; max-width: 140px"
+                                                    src="https://@@SERVER/pdf/image-005.jpg" />
+                                            </li>
+                                            <li class="list-group-item border-white"
+                                                style="display: flex; align-items: flex-start;">
+                                                <img style="max-height: 950px; max-width: 450px;"
+                                                    src="https://@@SERVER/pdf/ImageBarcode/@@REF_SORIANA" />
+                                            </li>
+
+                                            <li class="list-group-item border-white">
+                                                <img style="max-height: 155px; max-width: 140px"
+                                                    src="https://@@SERVER/pdf/image-006.jpg" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rcorners2" style="margin-top: 30px; margin-left: 210px !important;">
+                            <figure>
+                                <h4 style="font-size: 24px;">Si lo prefieres, puedes hacer tu pago por:</h4>
+                                <table class="table table-borderless">
+                                    <tbody style="border: #ffffff;">
+                                        <tr>
+                                            <td class="fs-4" style="font-size: 22px;">
+                                                <img style="max-height: 160px; max-width: 160px"
+                                                    src="https://@@SERVER/pdf/image-012.jpg" />
+                                                CLABE: <strong>@@SPEI</strong>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

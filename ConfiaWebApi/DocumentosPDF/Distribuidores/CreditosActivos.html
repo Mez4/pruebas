@@ -1,0 +1,505 @@
+<html>
+  <head>
+    <link
+      href="https://@@SERVER/pdf/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrapEditor"
+    />
+    <link
+      href="../../wwwroot/RecursosPDF/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrapServidor"
+    />
+    <!--<link href="https://@@SERVER/pdf/Relacion.Caratula.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/Relacion.Caratula.css" rel="stylesheet" id="bootstrapServidor">-->
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>-->
+    @@JQUERY
+    <!--<style type="text/css">
+        table {
+            page-break-inside: auto;
+            border: none;
+        }
+
+        div {
+            page-break-inside: avoid;
+        }
+        /* This is the key */
+        thead {
+            display: table-header-group
+        }
+
+        tfoot {
+            display: table-footer-group
+        }
+    </style>-->
+    <style type="text/css">
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            .divd::before {
+                content: "";
+                width: 400px;
+                height: 400px;
+                background: url('https://@@SERVER/pdf/LogoImg/@@LOGO');
+                background-repeat: no-repeat;
+                background-position-x: center;
+                background-position-y: center;
+                position: absolute;
+                opacity: 0.3;
+                left: 50%;
+                margin-left: -200px;
+                text-align: center;
+            }
+            table {
+                page-break-inside: auto
+                border-collapse: separate
+                border:solid black 1px
+                border-radius:6px
+            }
+
+            tr {
+                page-break-inside: avoid;
+                page-break-after: auto
+            }
+
+            thead {
+                display: table-header-group
+            }
+
+            tfoot {
+                display: table-footer-group
+            }
+            table.rounded-corners {
+       border-spacing: 0;
+       border-collapse: separate;
+       border-radius: 10px;
+       border: 1px solid black;
+      }
+
+      /* Apply a border to the right of all but the last column */
+      table.rounded-corners th:not(:last-child),
+      table.rounded-corners td:not(:last-child) {
+       border-right: 1px solid black;
+      }
+
+      /* Apply a border to the bottom of all but the last row */
+      table.rounded-corners>thead>tr:not(:last-child)>th,
+      table.rounded-corners>thead>tr:not(:last-child)>td,
+      table.rounded-corners>tbody>tr:not(:last-child)>th,
+      table.rounded-corners>tbody>tr:not(:last-child)>td,
+      table.rounded-corners>tfoot>tr:not(:last-child)>th,
+      table.rounded-corners>tfoot>tr:not(:last-child)>td,
+      table.rounded-corners>tr:not(:last-child)>td,
+      table.rounded-corners>tr:not(:last-child)>th,
+      table.rounded-corners>thead:not(:last-child),
+      table.rounded-corners>tbody:not(:last-child),
+      table.rounded-corners>tfoot:not(:last-child) {
+       border-bottom: 1px solid black;
+      }
+            .rcorners {
+                text-align: center;
+                border-radius: 15px;
+                border: 2px solid #000000;
+                padding: 15px;
+                width: 100%;
+                height: 65px;
+            }
+
+            .rcorners2 {
+                border-radius: 25px;
+                border: 2px solid #000000;
+                padding: 10px;
+                width: 100%;
+                height: auto;
+            }
+            .rcorners3 {
+                border-radius: 25px;
+                border: 2px solid #000000;
+                padding: 10px;
+                width: 840px;
+                height: 350px;
+                text-align: center;
+            }
+            #apDiv1 {
+                position: absolute;
+                left: 616px;
+                top: 1200px;
+                width: 122px;
+                height: 100px;
+                text-align: center;
+                line-height: 45px;
+                z-index: 2;
+                font-size: 14px;
+            }
+
+            #apDiv2 {
+                position: absolute;
+                left: 690px;
+                top: 1200px;
+                width: 122px;
+                height: 100px;
+                text-align: center;
+                line-height: 45px;
+                z-index: 2;
+                font-size: 14px;
+            }
+    </style>
+  </head>
+  <body
+    style="font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'"
+  >
+    <div style="margin: 5px">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col">
+            <figure class="text-end">
+              <blockquote class="blockquote">
+                <h6 style="font-size: 14px">
+                  EMISI&Oacute;N: @@IMPRIMIO @@FECHA_PRINT
+                </h6>
+              </blockquote>
+            </figure>
+          </div>
+        </div>
+        <div style="margin-bottom: 1px !important">
+          <div class="d-table-cell">
+            <div class="text-center w-25 d-table-cell">
+              <figure
+                class="figure"
+                style="
+                  margin-top: 1px;
+                  margin-left: 1px !important;
+                  margin-right: 35px !important;
+                "
+              >
+                <!--<img src="https://@@SERVER/pdf/logo4.png" style="width:120px">-->
+                <img
+                  id="logo"
+                  style="max-height: 200px; max-width: 220px"
+                  class="center"
+                  src="https://@@SERVER/pdf/LogoImg/@@LOGO"
+                />
+                <br />
+                <!--<figcaption class="figure-caption text-center text-dark">-->
+                <h5><strong>@@ESLOGAN</strong></h5>
+                <!--</figcaption>-->
+              </figure>
+            </div>
+            <div class="text-center w-75 d-table-cell">
+              <figure class="figure" style="margin-left: 5px !important">
+                <blockquote class="blockquote">
+                  <h3 style="margin-bottom: 1px">
+                    <strong>ESTADO DE CUENTA Y PLAN DE PAGOS</strong>
+                  </h3>
+                  <h6 style="margin-bottom: 1px">
+                    <strong>Nombre de @@DscDist</strong>
+                  </h6>
+                  <div
+                    class="card mb-3 border-white"
+                    style="text-align: center"
+                  >
+                    <div class="card-body rcorners">
+                      <h6>
+                        <strong class="center">
+                          @@ID_DIST - @@NOMBRE_DIST
+                        </strong>
+                        <br />
+                        Tel&eacute;fono: @@TELEFONO_DIST
+                      </h6>
+                    </div>
+                  </div>
+                </blockquote>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <div class="row m-0 mb-2 d-table-row">
+          <div class="col-sm-3 text-center ps-2 pe-3 w-25 d-table-cell">
+            <figure class="text-center">
+              <div class="card-subtitle" style="background-color: @@COLOR">
+                <h8><strong>Fecha de Corte</strong></h8>
+              </div>
+
+              <table
+                class="table table-bordered border-dark border-bottom-left-radius rounded-pill rounded-bottom"
+              >
+                <thead>
+                  <tr>
+                    <td
+                      class="text-center fs-10 rounded-pill"
+                      style="font-size: 13px"
+                      scope="col"
+                    >
+                      @@FECHA_CORTE
+                    </td>
+                  </tr>
+                </thead>
+              </table>
+            </figure>
+          </div>
+          <div class="col-sm-3 text-center ps-2 pe-3 w-25 d-table-cell">
+            <figure class="text-center">
+              <div class="card-subtitle" style="background-color: @@COLOR">
+                <h8><strong>Monedero&nbsp;Electr&oacute;nico</strong></h8>
+              </div>
+
+              <table class="table table-bordered border-dark rounded-pill">
+                <tbody>
+                  <tr>
+                    <td class="text-center fs-8" style="font-size: 13px">
+                      Acumulado:
+                    </td>
+                    <td class="text-center fs-10" style="font-size: 13px">
+                      @@ACUMULADO
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </figure>
+          </div>
+          <div class="col-sm-3 text-center ps-2 pe-3 w-25 d-table-cell">
+            <figure class="text-center">
+              <div class="card-subtitle" style="background-color: @@COLOR">
+                <h8><strong>Sucursal</strong></h8>
+              </div>
+              <table class="table table-bordered border-dark rounded-pill">
+                <thead>
+                  <tr>
+                    <td
+                      class="text-center fs-10"
+                      style="font-size: 13px"
+                      scope="col"
+                    >
+                      @@SUCURSAL
+                    </td>
+                  </tr>
+                </thead>
+              </table>
+            </figure>
+          </div>
+        </div>
+
+        <div>
+          <div class="row m-0 mb-2 d-table-row" style="margin-bottom: 1px">
+            <div class="col-6 text-center ps-3 pe-3 d-table-cell w-50">
+              <figure class="text-center">
+                <div class="card-subtitle" style="background-color: @@COLOR">
+                  <h8
+                    ><strong
+                      >Informaci&oacute;n L&iacute;nea de Cr&eacute;dito</strong
+                    ></h8
+                  >
+                </div>
+                <table class="table table-bordered border-dark rounded-pill">
+                  <thead>
+                    <tr>
+                      <!--th
+                        class="text-center fs-6"
+                        style="font-size: 13px"
+                        scope="col"
+                      >
+                        L&iacute;mite
+                      </th-->
+                      <th
+                        class="text-center fs-6"
+                        style="font-size: 13px"
+                        scope="col"
+                      >
+                        Colocado
+                      </th>
+                      <th
+                        class="text-center fs-6"
+                        style="font-size: 13px"
+                        scope="col"
+                      >
+                        Disponible
+                      </th>
+                      <!--<th class="text-center fs-4" scope="col">Nivel</th>-->
+                      <!--th
+                        class="text-center fs-6"
+                        style="font-size: 13px"
+                        scope="col"
+                      >
+                        Puntos
+                      </th-->
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <!--td class="text-center fs-10" style="font-size: 13px">
+                        @@LIMITE
+                      </td-->
+                      <td class="text-center fs-10" style="font-size: 13px">
+                        @@COLOCADO
+                      </td>
+                      <td class="text-center fs-10" style="font-size: 13px">
+                        @@DISPONIBLE
+                      </td>
+                      <!--<td class="text-center fs-4">@@NIVEL</td>-->
+                      <!--td class="text-center fs-10" style="font-size: 13px">
+                        @@PUNTOS
+                      </td-->
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </div>
+            <div class="col-6 text-center ps-3 pe-3 d-table-cell w-25" style="max-width: 500px !important">
+              <figure class="text-center">
+                <div class="card-subtitle" style="background-color: @@COLOR">
+                  <h8><strong>Prestamo Personal</strong></h8>
+                </div>
+                <table class="table table-bordered border-dark rounded-pill">
+                  <thead>
+                    <tr>
+                      <th
+                        class="text-center fs-8"
+                        style="font-size: 13px"
+                        scope="col"
+                      >
+                        Monto
+                      </th>
+                      <th
+                        class="text-center fs-8"
+                        style="font-size: 13px"
+                        scope="col"
+                      >
+                        Saldo
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center fs-10" style="font-size: 13px">
+                        @@MONTO
+                      </td>
+                      <td class="text-center fs-10" style="font-size: 13px">
+                        @@SALDO
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <!--CLASE DIVD ES PARA EL FONDO DEL LOGO-->
+        <div class="divd">
+          <!-- <div class="row m-0 mb-2 d-table-row">
+                    <div class="col-sm-12  ps-3 pe-3 w-100 d-table-cell">
+                        <strong>@@PRODUCTO</strong>
+                    </div>
+                </div>           -->
+          <div class="row m-0 mb-2 d-table-row">
+            <div class="col-sm-12 text-center ps-3 pe-3 w-100 d-table-cell">
+              <!--<div class="table-responsive">-->
+              <table class="table table-sm" style="border: #ffffff">
+                <thead>
+                  <tr>
+                    <th class="text-center fs-14" style="font-size: 13px">
+                      Fecha Canje
+                    </th>
+                    <!--<th class="text-center fs-6" scope="col">Sucursal</th>-->
+                    <th class="text-center" style="font-size: 13px">
+                      Cr&eacute;dito
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      Folio Vale
+                    </th>
+                    <th class="text-center" style="font-size: 13px">Cliente</th>
+                    <th class="text-center" style="font-size: 13px">Importe</th>
+                    <th class="text-center" style="font-size: 13px">Saldo</th>
+                    <th class="text-center" style="font-size: 13px">Atraso</th>
+                    <th class="text-center" style="font-size: 13px">Pago</th>
+                    <th class="text-center" style="font-size: 13px">
+                      Sld Dsp P
+                    </th>
+                    <th class="text-center" style="font-size: 13px">Plazo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!--style="page-break-before:always;"-->
+                  @@DETALLE_RELACION
+                </tbody>
+                <tfoot style="font-size: 13px">
+                  <tr>
+                    <th
+                      class="text-center"
+                      style="font-size: 13px"
+                      colspan="3"
+                      scope="row"
+                    >
+                      TOTAL @@PRODUCTO<!--TIPO DE CANJE -->
+                    </th>
+                    <th class="text-center" style="font-size: 13px" colspan="1">
+                      REGISTROS: @@COUNT
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@TIMPORTE
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@TSALDO
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@TATRASO
+                    </th>
+                    <th class="text-center" style="font-size: 13px">@@TPAGO</th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@TREMANENTE
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@ESPACIO
+                    </th>
+                    <th></th>
+                  </tr>
+                  <!--@@GRAN_TOTAL-->
+                </tfoot>
+              </table>
+              <!--</div>-->
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row m-0 mb-2 d-table-row">
+            <div class="col-sm-6 text-center ps-3 pe-3 w-50 d-table-cell">
+              <div class="rcorners2">
+                <figure class="figure">
+                  <img
+                    class="img-fluid rounded"
+                    style="max-width: 360px; max-height: 290px"
+                    src="https://@@SERVER/pdf/image-002.jpg"
+                  />
+                </figure>
+              </div>
+            </div>
+            <!--<div class="col-1"></div>-->
+            <div
+              class="col-sm-6 text-center align-text-top ps-3 pe-3 w-50 d-table-cell rcorners2"
+            >
+              <h3><strong>Informaci&oacute;n Importante</strong></h3>
+            </div>
+          </div>
+          <!--br />
+          <div class="row m-0 mb-2 d-table-row">
+            <div class="col-sm-5 text-center ps-3 pe-3 w-100 d-table-cell">
+              <div class="rcorners3">
+                <figure class="figure">
+                  <img
+                    class="img-fluid rounded"
+                    style="max-width: 750px"
+                    src="https://@@SERVER/pdf/image-001.jpg"
+                  />
+                </figure>
+              </div>
+            </div>
+          </div>
+          <div id="apDiv1">C@@ID_DIST</div>
+          <div id="apDiv2">CR-U2L44M34</div-->
+        </div>
+        <!--@@RESTO_DETALLE-->
+      </div>
+    </div>
+  </body>
+</html>

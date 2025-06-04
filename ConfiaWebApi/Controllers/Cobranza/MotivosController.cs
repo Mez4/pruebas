@@ -1,0 +1,104 @@
+﻿using DBContext.DBConfia;
+using DBContext.DBConfia.Cobranza;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+
+
+namespace ConfiaWebApi.Controllers.Cobranza
+{
+    [Authorize]
+    [ApiController]
+    [Route("api/Cobranza/[controller]")]
+    public class MotivosController : ControllerBase
+    {
+        private DBConfiaContext DBContext;
+
+        public MotivosController(DBConfiaContext _DBContext)
+        {
+            DBContext = _DBContext;
+        }
+
+        [HttpPost]
+        [Route("get")]
+        [Code.TProteccionProducto]
+        //[Authorize]
+        //[ConfiaWebApi.Code.KeycloakSecurityAttributes(new string[] { "CATALOGOS_ADMIN" })]
+        public async Task<IActionResult> Get(ConfiaWebApi.PeticionesRest.Cobranza.Motivos.get parData)
+        {
+            if (parData.id != 0)
+            {
+                var resultado = await DBContext.database.SingleByIdAsync<Motivos>(parData.id);
+                await DBContext.Destroy();
+                return Ok(resultado);
+            }
+
+            var res = await DBContext.database.FetchAsync<Motivos>();
+            await DBContext.Destroy();
+            return Ok(res);
+        }
+
+        [HttpPost]
+        [Route("add")]
+        [Code.TProteccionProducto]
+        //[Authorize]
+        //[ConfiaWebApi.Code.KeycloakSecurityAttributes(new string[] { "CATALOGOS_ADMIN" })]
+        public async Task<IActionResult> Add(ConfiaWebApi.PeticionesRest.Cobranza.Motivos.add parData)
+        {
+            try
+            {
+                var UserName = HttpContext.User.Claims.Where(x => x.Type == "preferred_username").FirstOrDefault().Value;
+                var UsuarioActual = await DBContext.database.QueryAsync<DBContext.DBConfia.Seguridad.UsuariosVW>("WHERE Usuario=@0", UserName).FirstOrDefaultAsync();
+                var Bitacora = new Bitacora { Usuario = UsuarioActual.UsuarioID, UsuarioPersona = Convert.ToInt32(UsuarioActual.PersonaID), Clave = "MI000", Fecha = DateTime.Now };
+                await DBContext.database.InsertAsync<Bitacora>(Bitacora);
+
+                var motivos = new Motivos() { Motivo = parData.Motivo, Activo = parData.Activo };
+                await DBContext.database.InsertAsync<Motivos>(motivos);
+                await DBContext.Destroy();
+                return Ok(motivos);
+            }
+            catch (Exception ex)
+            {
+                await DBContext.Destroy();
+                return BadRequest(ex);
+            }
+        }
+
+        [HttpPost]
+        [Route("update")]
+        [Code.TProteccionProducto]
+        //[Authorize]
+        //[ConfiaWebApi.Code.KeycloakSecurityAttributes(new string[] { "CATALOGOS_ADMIN" })]
+        public async Task<IActionResult> Update(ConfiaWebApi.PeticionesRest.Cobranza.Motivos.update parData)
+        {
+            try
+            {
+               // var Rute = RouteData.Values.Keys.ToList();
+               // var Accion = RouteData.Values.Values.ToList();
+               // var Mapa = (Rute[0].ToString() + '/' + Accion[0].ToString() + '-' + Rute[1].ToString() + '/' + Accion[1].ToString());
+                //WG mandar llamar una funcion sql que regrese la clave 
+
+                var UserName = HttpContext.User.Claims.Where(x => x.Type == "preferred_username").FirstOrDefault().Value;
+                var UsuarioActual = await DBContext.database.QueryAsync<DBContext.DBConfia.Seguridad.UsuariosVW>("WHERE Usuario=@0", UserName).FirstOrDefaultAsync();
+                var Bitacora = new Bitacora { Usuario = UsuarioActual.UsuarioID, UsuarioPersona = Convert.ToInt32(UsuarioActual.PersonaID), Clave = "MA000", Fecha = DateTime.Now };
+                await DBContext.database.InsertAsync<Bitacora>(Bitacora);
+
+                var motivos = await DBContext.database.SingleByIdAsync<Motivos>(parData.MotivoID);
+                motivos.Motivo = parData.Motivo;
+                motivos.Activo = parData.Activo;
+                await DBContext.database.UpdateAsync(motivos);
+                await DBContext.Destroy();
+                return Ok(motivos);
+            }
+            catch (Exception ex)
+            {
+                await DBContext.Destroy();
+                return BadRequest(ex);
+            }
+        }
+    }
+}

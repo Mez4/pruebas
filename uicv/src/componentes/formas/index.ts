@@ -1,0 +1,7 @@
+export * as FormasPersona from './personas'
+export * as FormasGeneral from './general'
+export * as FormasClientes from './clientes'
+export * as FormasProspecto from './prospectos'
+export * as FormasGestor from './cobranza'
+export * as FormasDistribuidor from './distribuidores'
+export * as FormasProspectoInteresado from './prospectosinteresados'

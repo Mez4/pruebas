@@ -1,0 +1,616 @@
+<html lang="es">
+  <meta charset="UTF-8" />
+  <head>
+    <link
+      href="https://@@SERVER/pdf/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrapEditor"
+    />
+    <link
+      href="../../wwwroot/RecursosPDF/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrapServidor"
+    />
+    <title>Perfil Distribuidor</title>
+    @@JQUERY
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        border: solid black 1px;
+      }
+
+      tr {
+        /* page-break-after: auto; */
+      }
+
+      thead {
+        display: table-header-group;
+      }
+
+      tfoot {
+        display: table-footer-group;
+      }
+      .rcorners {
+        text-align: center;
+        border-radius: 15px;
+        border: 2px solid #000000;
+        width: 100%;
+        padding: 0.3rem;
+      }
+    </style>
+  </head>
+  <body
+    style="font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'"
+  >
+    <div style="margin: 5px">
+      <div class="container">
+        <div class="align-items-center">
+          <div class="col">
+            <figure class="text-end">
+              <blockquote class="blockquote">
+                <h6 style="font-size: 10px">
+                  EMISI&Oacute;N: @@IMPRIMIO @@FECHA_PRINT
+                </h6>
+              </blockquote>
+            </figure>
+          </div>
+        </div>
+        <div style="margin-bottom: 0">
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row">
+              <div class="text-center d-table-cell">
+                <figure
+                  class="figure"
+                  style="
+                    margin-top: 1px;
+                    margin-left: 8px !important;
+                    margin-right: 35px !important;
+                  "
+                >
+                  <img
+                    id="logo"
+                    style="max-height: 100px; max-width: 110px"
+                    class="center"
+                    src="https://@@SERVER/pdf/LogoImg/@@LOGO"
+                  />
+                  <br />
+                  <h5><strong>@@ESLOGAN</strong></h5>
+                </figure>
+              </div>
+              <div class="w-75 d-table-cell">
+                <figure
+                  class="figure"
+                  style="margin-left: 5px !important; width: 100%"
+                >
+                  <blockquote class="blockquote">
+                    <h3 style="margin-bottom: 1px; margin-left: 9rem">
+                      <strong>PERFIL SOCIA</strong>
+                    </h3>
+                  </blockquote>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-table" style="width: 100%">
+          <div class="mb-2 border-white" style="text-align: center">
+            <div class="rcorners">
+              <h6>
+                <strong class="center"> @@NOMBRE_DV </strong>
+              </h6>
+            </div>
+          </div>
+        </div>
+        <div class="d-table" style="width: 100%">
+          <div class="d-table-row" style="width: 100%; font-size: 12px">
+            <div class="text-center d-table-cell" style="width: 25%">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>ID CV</strong></h8>
+                </div>
+                <table
+                  class="table table-bordered border-dark"
+                  style="font-size: 10px"
+                >
+                  <thead>
+                    <tr>
+                      <td class="text-center" scope="col">@@ID_DV</td>
+                    </tr>
+                  </thead>
+                </table>
+              </figure>
+            </div>
+            <div class="text-center ps-2 d-table-cell" style="width: 25%">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>ID VR</strong></h8>
+                </div>
+                <table
+                  class="table table-bordered border-dark"
+                  style="font-size: 10px"
+                >
+                  <thead>
+                    <tr>
+                      <td class="text-center" scope="col">@@ID_VR</td>
+                    </tr>
+                  </thead>
+                </table>
+              </figure>
+            </div>
+            <div class="text-center ps-2 d-table-cell" style="width: 25%">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>Tel&eacute;fono</strong></h8>
+                </div>
+                <table
+                  class="table table-bordered border-dark"
+                  style="font-size: 10px"
+                >
+                  <tbody>
+                    <tr>
+                      <td class="text-center">@@TELEFONO_DV</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </div>
+            <div class="text-center ps-2 d-table-cell" style="width: 25%">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>Estatus</strong></h8>
+                </div>
+                <table
+                  class="table table-bordered border-dark"
+                  style="font-size: 10px"
+                >
+                  <tbody>
+                    <tr>
+                      <td class="text-center">@@DVESTATUS</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <!-- Dirección -->
+        <div class="d-table" style="width: 100%">
+          <div class="d-table-row" style="width: 100%; font-size: 12px">
+            <div class="text-center d-table-cell" style="width: 50%">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>Dirección</strong></h8>
+                </div>
+                <table
+                  class="table table-bordered border-dark"
+                  style="font-size: 10px"
+                >
+                  <thead>
+                    <tr>
+                      <td class="text-center" scope="col">@@DIRECCION</td>
+                    </tr>
+                  </thead>
+                </table>
+              </figure>
+            </div>
+            <div class="text-center ps-2 d-table-cell" style="width: 25%">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>Ciudad</strong></h8>
+                </div>
+                <table
+                  class="table table-bordered border-dark"
+                  style="font-size: 10px"
+                >
+                  <tbody>
+                    <tr>
+                      <td class="text-center">@@CIUDAD</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </div>
+            <div class="text-center ps-2 d-table-cell" style="width: 25%">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>Estado</strong></h8>
+                </div>
+                <table
+                  class="table table-bordered border-dark"
+                  style="font-size: 10px"
+                >
+                  <tbody>
+                    <tr>
+                      <td class="text-center">@@ESTADO</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <!-- Coordinador -->
+        <div class="d-table" style="width: 100%">
+          <div class="d-table-row" style="width: 100%; font-size: 12px">
+            <div class="text-center d-table-cell" style="width: 50%">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>Coordinador</strong></h8>
+                </div>
+                <table
+                  class="table table-bordered border-dark"
+                  style="font-size: 10px"
+                >
+                  <tbody>
+                    <tr>
+                      <td class="text-center">
+                        @@COORDINADORID - @@COORDINADORNOMBRE
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </div>
+            <div class="text-center ps-2 d-table-cell" style="width: 25%">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>Grupo</strong></h8>
+                </div>
+                <table
+                  class="table table-bordered border-dark"
+                  style="font-size: 10px"
+                >
+                  <tbody>
+                    <tr>
+                      <td class="text-center">
+                        @@GRUPOID - @@GRUPODESCRIPCION
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </figure>
+            </div>
+            <div class="text-center ps-2 d-table-cell" style="width: 25%">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>Sucursal</strong></h8>
+                </div>
+                <table
+                  class="table table-bordered border-dark"
+                  style="font-size: 10px"
+                >
+                  <thead>
+                    <tr>
+                      <td class="text-center" scope="col">@@SUCURSAL</td>
+                    </tr>
+                  </thead>
+                </table>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <!-- Nivel -->
+        <div class="d-table" style="width: 100%">
+          <div class="d-table-row" style="width: 100%; font-size: 12px">
+            <div class="text-center d-table-cell">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>Nivel</strong></h8>
+                </div>
+                <table class="table" style="font-size: 10px">
+                  <thead>
+                    <tr>
+                      <td>Nivel Interno</td>
+                      <td class="text-end">@@NIVELINTERNO</td>
+                      <td>Nivel Origen</td>
+                      <td class="text-end">@@NIVELORIGEN</td>
+                    </tr>
+                    <tr>
+                      <td>Linea Credito</td>
+                      <td class="text-end">@@LINEACREDITO</td>
+                      <td>Proteccion de</td>
+                      <td class="text-end">@@PROTECCIONCOSTO</td>
+                    </tr>
+                    <tr>
+                      <td>Canje Aval</td>
+                      <td class="text-end">@@CANJEAVAL</td>
+                      <td>Canje Cliente</td>
+                      <td class="text-end">@@CANJECLIENTE</td>
+                    </tr>
+                    <tr>
+                      <td>Maximo Prestamo Personal</td>
+                      <td class="text-end">@@MAXPPERSONAL</td>
+                      <td>Comision Base</td>
+                      <td class="text-end">@@COMISIONBASE</td>
+                    </tr>
+                  </thead>
+                </table>
+              </figure>
+            </div>
+            <div class="text-center ps-2 d-table-cell">
+              <figure class="text-center">
+                <div
+                  class="card-subtitle"
+                  style="color: white; background-color: @@COLOR"
+                >
+                  <h8><strong>General</strong></h8>
+                </div>
+                <table class="table" style="font-size: 10px">
+                  <thead>
+                    <tr>
+                      <td>RFC</td>
+                      <td class="text-end">@@RFC</td>
+                    </tr>
+                    <tr>
+                      <td>CURP</td>
+                      <td class="text-end">@@CURP</td>
+                    </tr>
+                    <tr>
+                      <td>F.Nacimiento</td>
+                      <td class="text-end">@@FECHANACIMIENTO</td>
+                    </tr>
+                    <tr>
+                      <td>Sexo</td>
+                      <td class="text-end">@@SEXODV</td>
+                    </tr>
+                  </thead>
+                </table>
+              </figure>
+            </div>
+          </div>
+        </div>
+        <!-- SALDOS -->
+        <div class="d-table" style="width: 100%">
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%">
+              <div class="text-center w-100 d-table-cell">
+                <h3 style="font-weight: bold">SALDOS</h3>
+              </div>
+            </div>
+          </div>
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%; font-size: 12px">
+              <div class="text-center d-table-cell" style="width: 100%">
+                <table
+                  class="table table-sm"
+                  style="width: 100%; font-size: 9px"
+                >
+                  <thead style="color: white; background-color: @@COLOR">
+                    <tr>
+                      <th class="text-center">PRODUCTO</th>
+                      <th class="text-center">ACTIVO</th>
+                      <th class="text-center">IMPORTE TOTAL</th>
+                      <th class="text-center">SALDO ACTUAL</th>
+                      <th class="text-center">L. CREDITO</th>
+                      <th class="text-center">L.C DISPONIBLE</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @@SALDOS
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- VALERAS -->
+        <div class="d-table" style="width: 100%">
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%">
+              <div class="text-center w-100 d-table-cell">
+                <h3 style="font-weight: bold">VALERAS</h3>
+              </div>
+            </div>
+          </div>
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%; font-size: 12px">
+              <div class="text-center d-table-cell" style="width: 100%">
+                <table
+                  class="table table-sm"
+                  style="width: 100%; font-size: 9px"
+                >
+                  <thead style="color: white; background-color: @@COLOR">
+                    <tr>
+                      <th class="text-center">ID</th>
+                      <th class="text-center">ESTATUS</th>
+                      <th class="text-center">PRODUCTO</th>
+                      <th class="text-center">SERIE</th>
+                      <th class="text-center">F.INICIAL</th>
+                      <th class="text-center">F.FINAL</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @@VALERAS
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- APLICACIONES -->
+        <div class="d-table" style="width: 100%">
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%">
+              <div class="text-center w-100 d-table-cell">
+                <h3 style="font-weight: bold">APLICACIONES</h3>
+              </div>
+            </div>
+          </div>
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%; font-size: 12px">
+              <div class="text-center d-table-cell" style="width: 100%">
+                <table
+                  class="table table-sm"
+                  style="width: 100%; font-size: 9px"
+                >
+                  <thead style="color: white; background-color: @@COLOR">
+                    <tr>
+                      <th class="text-center">ID</th>
+                      <th class="text-center">NOMBRE CAPTURA</th>
+                      <th class="text-center">FECHA REGISTRO</th>
+                      <th class="text-center">FECHA APLICACION</th>
+                      <th class="text-center">PAGO</th>
+                      <th class="text-center">BONIFICACION</th>
+                      <th class="text-center">DNI</th>
+                      <th class="text-center">ESTATUS</th>
+                      <th class="text-center">TIPO PAGO</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @@APLICACIONES
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- SOLICITUDES DE CONVENIOS Y REESTRUCTURAS -->
+        <div class="d-table" style="width: 100%">
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%">
+              <div class="text-center w-100 d-table-cell">
+                <h3 style="font-weight: bold">
+                  SOLICITUDES DE CONVENIOS Y REESTRUCTURAS
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%; font-size: 12px">
+              <div class="text-center d-table-cell" style="width: 100%">
+                <table
+                  class="table table-sm"
+                  style="width: 100%; font-size: 9px"
+                >
+                  <thead style="color: white; background-color: @@COLOR">
+                    <tr>
+                      <th class="text-center">HERRAMIENTA</th>
+                      <th class="text-center">PLAZOS</th>
+                      <th class="text-center">MOTIVO</th>
+                      <th class="text-center">ESTATUS</th>
+                      <th class="text-center">FECHA SOLICITUD</th>
+                      <th class="text-center">FECHA AUTORIZACION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @@SOLICITUDESCONVENIOSYMAS
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- CREDITOS ACTIVOS -->
+        <div class="d-table" style="width: 100%">
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%">
+              <div class="text-center w-100 d-table-cell">
+                <h3 style="font-weight: bold">CREDITOS ACTIVOS</h3>
+              </div>
+            </div>
+          </div>
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%">
+              <div class="text-center d-table-cell" style="width: 100%">
+                <table
+                  class="table table-sm"
+                  style="width: 100%; font-size: 9px"
+                >
+                  <thead style="color: white; background-color: @@COLOR">
+                    <tr>
+                      <th class="text-center">ID CREDITO</th>
+                      <th class="text-center">ID CLIENTE</th>
+                      <th class="text-center">CLIENTE</th>
+                      <th class="text-center">TIPO</th>
+                      <th class="text-center">IMPORTE</th>
+                      <th class="text-center">SALDO</th>
+                      <th class="text-center">PLAZOS</th>
+                      <th class="text-center">DIAS ATRASO</th>
+                      <th class="text-center">FECHA ULTIMO PAGO</th>
+                      <th class="text-center">FECHA CAPTURA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @@CREDITOS
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- DIRECCIONES CLIENTES CON CREDITOS ACTIVOS -->
+        <div class="d-table" style="width: 100%">
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%">
+              <div class="text-center w-100 d-table-cell">
+                <h3 style="font-weight: bold">
+                  DIRECCIONES CLIENTES CON CREDITOS ACTIVOS
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row" style="width: 100%; font-size: 12px">
+              <div class="text-center d-table-cell" style="width: 100%">
+                <table
+                  class="table table-sm"
+                  style="width: 100%; font-size: 9px"
+                >
+                  <thead style="color: white; background-color: @@COLOR">
+                    <tr>
+                      <th class="text-center">ID</th>
+                      <th class="text-center">CLIENTE</th>
+                      <th class="text-center">TEL. MOVIL</th>
+                      <th class="text-center">DIRECCION</th>
+                      <th class="text-center">CIUDAD</th>
+                      <th class="text-center">REFERENCIAS GEOGRAFICAS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @@CLIENTESACTIVOSDIRECCIONES
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

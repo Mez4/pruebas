@@ -1,0 +1,290 @@
+<html>
+  <head>
+    <link
+      href="https://@@SERVER/pdf/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrapEditor"
+    />
+    <link
+      href="../../wwwroot/RecursosPDF/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrapServidor"
+    />
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      .rcorners {
+        border-radius: 25px;
+        border: 2px solid #000000;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+    <div style="margin: 0">
+      <div class="d-table" style="width: 100%">
+        <div class="d-table-row">
+          <figure class="text-end">
+            <blockquote class="blockquote">
+              <h6 style="font-size: 10px">
+                EMISI&Oacute;N: @@IMPRIMIO @@FECHA_PRINT
+              </h6>
+            </blockquote>
+          </figure>
+        </div>
+      </div>
+      <div class="d-table" style="width: 100%">
+        <div class="d-table-row">
+          <div class="text-center w-25 d-table-cell">
+            <figure
+              class="figure"
+              style="
+                margin-top: 1px;
+                margin-left: 8px !important;
+                margin-right: 35px !important;
+              "
+            >
+              <img
+                id="logo"
+                style="max-height: 200px; max-width: 220px"
+                class="center"
+                src="https://@@SERVER/pdf/LogoImg/@@LOGO"
+              />
+              <h5><strong>@@ESLOGAN</strong></h5>
+            </figure>
+          </div>
+          <div class="text-center w-75 d-table-cell">
+            <figure class="figure" style="width: 100%">
+              <blockquote class="blockquote">
+                <h3 style="margin-bottom: 1px">
+                  <strong>FICHA DE PAGO</strong>
+                </h3>
+                <h6 style="margin-bottom: 1px">
+                  <strong>Nombre de Cliente</strong>
+                </h6>
+                <div class="card mb-3 border-white" style="text-align: center">
+                  <div class="card-body rcorners">
+                    <h6>
+                      <strong class="center">
+                        @@ID_CLIENTE - @@NOMBRE_CLIENTE
+                      </strong>
+                      <br />
+                      Tel&eacute;fono: @@TELEFONO_CLIENTE
+                    </h6>
+                  </div>
+                </div>
+              </blockquote>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="d-table" style="width: 100%">
+        <div class="text-center ps-2 d-table-cell" style="width: 50%">
+          <figure class="text-center">
+            <div
+              class="card-subtitle"
+              style="color: white; background-color: @@COLOR"
+            >
+              <h8><strong>Cr&eacute;dito</strong></h8>
+            </div>
+            <table
+              class="table table-bordered border-dark"
+              style="font-size: 13px"
+            >
+              <thead>
+                <tr>
+                  <td class="text-center">@@CREDITO</td>
+                </tr>
+              </thead>
+            </table>
+          </figure>
+        </div>
+        <div class="text-center ps-2 d-table-cell" style="width: 50%">
+          <figure class="text-center">
+            <div
+              class="card-subtitle"
+              style="color: white; background-color: @@COLOR"
+            >
+              <h8><strong>Sucursal</strong></h8>
+            </div>
+            <table class="table table-bordered border-dark rounded-pill">
+              <thead>
+                <tr>
+                  <td
+                    class="text-center fs-10"
+                    style="font-size: 13px"
+                    scope="col"
+                  >
+                    @@SUCURSAL
+                  </td>
+                </tr>
+              </thead>
+            </table>
+          </figure>
+        </div>
+      </div>
+      <div class="d-table" style="width: 100%">
+        <div class="d-table-row" style="width: 100%">
+          <div class="d-table-cell text-center" style="width: 100%">
+            <div class="rcorners" style="margin-top: 20px">
+              <ul
+                class="list-group list-group-flush px-2"
+                style="border: #ffffff"
+              >
+                <li
+                  class="list-group-item border-dark border-bottom mb-2"
+                  style="border: #ffffff"
+                >
+                  <div class="row m-0 mb-2 d-table-row">
+                    <div class="w-25 text-center d-table-cell">
+                      <figure class="text-center">
+                        <span style="font-size: 12px"
+                          ><strong>SUCURSALES Y CAJEROS BANCOMER</strong></span
+                        >
+                      </figure>
+                    </div>
+                    <div class="w-25 text-center d-table-cell">
+                      <span style="font-size: 12px"
+                        ><strong>BANCO: BANCOMER</strong>
+                      </span>
+                    </div>
+                    <div class="w-25 text-center d-table-cell">
+                      <span style="font-size: 12px"
+                        ><strong>CONTRATO CIE: @@CONTRATO_CIE</strong></span
+                      >
+                    </div>
+                    <div class="w-25 text-center d-table-cell">
+                      <span style="font-size: 12px"
+                        ><strong>Referencia: @@REF_BANCOMER</strong></span
+                      >
+                    </div>
+                  </div>
+                </li>
+                <li
+                  class="list-group-item border-bottom border-dark"
+                  style="border: #ffffff"
+                >
+                  <div class="row m-0 mb-2 d-table-row">
+                    <div class="text-center w-25 d-table-cell">
+                      <span style="font-size: 12px"
+                        ><strong>SUCURSALES DE LA EMPRESA</strong></span
+                      >
+                    </div>
+                    <div class="text-center w-75 d-table-cell">
+                      <span style="font-size: 12px"
+                        ><strong
+                          >EN HORARIO DE 8:30 A 18:00 HORAS DE LUN A VIER Y
+                          SABADO DE 8:30 A 14:00 P.M</strong
+                        >
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div class="d-table" style="width: 100%">
+                <div class="d-table-row">
+                  <div class="d-table-cell">
+                    <div class="text-center">
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-white">
+                          <img
+                            style="max-height: 130px; max-width: 140px"
+                            src="https://@@SERVER/pdf/LogoImg/@@LOGO"
+                          />
+                        </li>
+                        <li class="list-group-item border-white">
+                          <img
+                            style="max-height: 130px; max-width: 140px"
+                            src="https://@@SERVER/pdf/image-011.jpg"
+                          />
+                        </li>
+                        <li class="list-group-item border-white">
+                          <img
+                            style="max-height: 120px; max-width: 140px"
+                            src="https://@@SERVER/pdf/image-009.jpg"
+                          />
+                        </li>
+                        <li class="list-group-item border-white">
+                          <img
+                            style="max-height: 120px; max-width: 140px"
+                            src="https://@@SERVER/pdf/image-010.jpg"
+                          />
+                        </li>
+                        <li class="list-group-item border-white">
+                          <img
+                            style="max-height: 120px; max-width: 140px"
+                            src="https://@@SERVER/pdf/image-007.jpg"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="d-table-cell">
+                    <div class="text-center">
+                      <p class="card-text text-center" style="font-size: 12px">
+                        <strong>
+                          Importante Mencionar al cajero que realizar&aacute;s
+                          un<br />
+                          pago por el sistema de ClubPago.<br />
+                          Horario<br />
+                          Lunes a Viernes: 8:30 a 17:00HRS.<br />
+                          S&aacute;bado: 8:00 a 14:00HRS.<br />
+                          <br />
+                          Atenci&oacute;n a clientes<br />
+                          01-800-386-63-42<br />
+                          <br />
+                          Conserva su ticket de pago, para cualquier<br />
+                          aclaraci&oacute;n.<br />
+                          Importe m&aacute;ximo de pago $10,000.00 por
+                          transacci&oacute;n.<br />
+                          Comisi&oacute;n por transacci&oacute;n de $16.00
+                          adicional a su pago.<br />
+                        </strong>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="d-table-cell">
+                    <div class="text-center">
+                      <figure class="text-center center">
+                        <h6><strong>C&oacute;digo Referencia</strong></h6>
+                      </figure>
+                      <ul class="list-group list-group-flush">
+                        <li class="list-group-item border-white">
+                          <img
+                            style="max-height: 155px; max-width: 140px"
+                            src="https://@@SERVER/pdf/image-005.jpg"
+                          />
+                        </li>
+                        <li
+                          class="list-group-item border-white"
+                          style="display: flex; align-items: flex-start"
+                        >
+                          <img
+                            style="max-height: 250px; max-width: 250px"
+                            src="https://@@SERVER/pdf/ImageBarcode/@@REF_SORIANA"
+                          />
+                        </li>
+
+                        <li class="list-group-item border-white">
+                          <img
+                            style="max-height: 155px; max-width: 140px"
+                            src="https://@@SERVER/pdf/image-006.jpg"
+                          />
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

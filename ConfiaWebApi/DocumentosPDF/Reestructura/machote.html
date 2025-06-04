@@ -1,0 +1,195 @@
+﻿<html>
+
+<head>
+    <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor">
+    <link href="https://@@SERVER/pdf/Contrato.Caratula.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/Contrato.Caratula.css" rel="stylesheet" id="bootstrapServidor">
+</head>
+
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div style="margin: 10px;">
+        <!-- inicio <> cabecera -->
+        <div style="
+            background-image: url('https://@@SERVER/pdf/LogoImg/@@LOGO');
+            background-repeat: repeat;
+            background-position: top;
+            background-origin: padding-box;
+            background-clip: padding-box;
+            opacity: 0.1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        "></div>
+        <div class="invoice-company" style="height: 65px;">
+            <span class="pull-right hidden-print">
+            </span>
+            <div style="float: right; margin-top: 8px; text-align: right; font-size: 13px;">
+                <strong>@@PRODUCTO</strong><br />
+                SUCURSAL: <strong>@@SUCURSAL</strong><br />
+                FECHA: <strong>@@FECHA_ENTREGA</strong><br />
+                <strong>SOLICITUD DE REESTRUCTURA DE CLIENTES</strong>
+            </div>
+        </div>
+        <hr />
+        <!-- fin <> cabecera -->
+        <!-- inicio <> detalle cabecera -->
+        <div class="" style=" margin-top: 10px; border: 2px solid gray;">
+            <div class="bg-secondary text-white p-1 ps-2">
+                <strong>DATOS DE LA SOCIA</strong>
+            </div>
+            <div class="card-body p-0 pt-2 pb-0" style="margin-bottom: 10px;">
+                <div class="row m-0 mb-2 d-table-row">
+                    <div class="col-sm-3 col w-25 d-table-cell">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                SOCIA#: @@NUMDIST
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-9 col w-25 d-table-cell">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                @@DV
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-0 mb-2 d-table-row">
+                <div class="col-sm-3 col w-25 d-table-cell">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td width="50%">
+                                    SALDO ACTUAL:
+                                </td>
+                                <td width="50%">
+                                    @@SALDO
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%">
+                                    SALDO ATRASADO:
+                                </td>
+                                <td width="50%">
+                                    @@ATRASADO
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-sm-9 col w-25 d-table-cell">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td width="50%">
+                                    TOTAL CLIENTES:
+                                </td>
+                                <td width="50%">
+                                    @@CLIENTESTOTAL
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="50%">
+                                    A REESTRUCTURAR:
+                                </td>
+                                <td width="50%">
+                                    @@CLIENTESCOUNT
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div class="bg-secondary text-white p-1 ps-2">
+            <strong>CLIENTES A REESTRUCTURAR</strong>
+        </div>
+        @@TABLA_CLIENTES
+    </div>
+    <div class="col-sm-12 col w-25 d-table-cell">
+        <table class="table" style="font-size: 13px;">
+            <thead>
+                <tr>
+                    <th width="60%"></th>
+                    <th width="20%">SI</th>
+                    <th width="20%">NO</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        CUMPLE CON EL 30% DEL SALDO?
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        CUMPLE CON EL 30% DEL SALDO DE CLIENTES?
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        TIENE ANTUGUEDAD MINIMA DE SEIS MESES?
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        SE REALIZO COBRANZA A CLIENTES FINALES?
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        SU EXPEDIENTE ESTA ACTUALIZADO?
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        TIENE PAGARE FIRMADO?
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        CUENTA CON PRESTAMO PERSONAL?
+                    </td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="position: absolute; bottom: 0px;">
+        <div class="row m-0 mb-2 d-table-row">
+            <div class="col-sm-4 text-center ps-3 pe-3 w-50 d-table-cell">
+                <hr class="mt-5 mb-0" />
+                <span>NOMBRE Y FIRMA SOCIA</span>
+            </div>
+            <div class="col-sm-4 text-center ps-3 pe-3 w-50 d-table-cell">
+                <hr class="mt-5 mb-0" />
+                <span>NOMBRE Y FIRMA GERENTE</span>
+            </div>
+            <div class="col-sm-4 text-center d-table-cell">
+                <p class="bg-secondary text-white text-center"></p>
+                <br>
+                <hr class="" />
+                <span></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

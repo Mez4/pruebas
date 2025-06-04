@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@syncfusion/ej2-react-inputs": "^20.1.48",
+    "@types/filesystem": "^0.0.32",
+    "expo-file-system": "^13.1.4",
+    "image-data-uri": "^2.0.1",
+    "nodejs-base64": "^2.0.0",
+    "react-native-fs": "^2.19.0",
+    "react-signature-canvas": "^1.0.5",
+    "reactjs-popup": "^2.0.5"
+  }
+}

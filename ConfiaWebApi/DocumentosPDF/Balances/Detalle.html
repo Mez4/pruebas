@@ -1,0 +1,78 @@
+﻿<html>
+
+<head>
+    <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor">
+
+    <style type="text/css">
+        .a1 {
+            height: 200px;
+            width: 1px;
+            display: inline;
+            border-left: 1px dotted red;
+        }
+
+
+        table {
+            page-break-inside: auto
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto
+        }
+
+        thead {
+            display: table-header-group
+        }
+
+        tfoot {
+            display: table-footer-group
+        }
+
+        .rcorners {
+            border-radius: 25px;
+            border: 2px solid #000000;
+            padding: 20px;
+            width: 100%;
+            height: auto;
+        }
+
+        td {
+            border-left: 1px solid black;
+            border-right: 1px solid black;
+
+        }
+
+        th {
+            border: 1px solid black;
+        }
+
+        tr:last-child td {
+            border-bottom: 1px solid black;
+        }
+    </style>
+</head>
+
+<body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+    <div class="container">
+        <br />
+
+        <div className="columns is-centered is-mobile is-multiline" style="border-top: -10% !important;">
+            <div className="column is-align-items-center is-full">
+                <table class="table table-sm" style="border: #ffffff;">
+                    <thead>
+                        @@HEADER_DETALLE
+                    </thead>
+                    <tbody>
+                        @@DATOS_DETALLE2
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    </div>
+</body>
+
+</html>

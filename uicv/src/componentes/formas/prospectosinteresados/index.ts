@@ -1,0 +1,1 @@
+export { FormaDatosGenerales } from './FormaDatosGenerales'

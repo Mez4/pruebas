@@ -1,0 +1,155 @@
+<html>
+
+<head>
+    <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor">
+    <link href="https://@@SERVER/pdf/Contrato.Caratula.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/Contrato.Caratula.css" rel="stylesheet" id="bootstrapServidor">
+</head>
+
+<body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <div style="margin: 10px;">
+        <!-- inicio <> cabecera -->
+        <div style="
+            background-image: url('https://@@SERVER/pdf/LogoImg/@@LOGO');
+            background-repeat: repeat;
+            background-position: top;
+            background-origin: padding-box;
+            background-clip: padding-box;
+            opacity: 0.1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        "></div>
+        <div class="invoice-company" style="height: 65px;">
+            <span class="pull-right hidden-print">
+            </span>
+            <div style="float: right; margin-top: 8px; text-align: right; font-size: 13px;">
+                <strong>@@PRODUCTO</strong><br />
+                SUCURSAL: <strong>@@SUCURSAL</strong><br />
+                FECHA: <strong>@@FECHA_ENTREGA</strong><br />
+                <strong>SOLICITUD DE REESTRUCTURA</strong>
+            </div>
+        </div>
+        <hr />
+        <!-- fin <> cabecera -->
+        <!-- inicio <> detalle cabecera -->
+        <strong>SOLICITUD DE REESTRUCTURA</strong>
+        <br />
+        <div class="" style="font-size: 13px; margin-top: 10px; border: 2px solid gray;">
+            <div class="bg-secondary text-white p-1 ps-2">
+                <strong>DATOS DE LA SOCIA</strong>
+            </div>
+            <div class="card-body p-0 pt-2 pb-0" style="margin-bottom: 10px;">
+                <div class="row m-0 mb-2 d-table-row">
+                    <div class="col-sm-3 col w-25 d-table-cell">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                SOCIA#:
+                            </li>
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                NOMBRE:
+                            </li>
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                TEL&Eacute;FONO:
+                            </li>
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                DOMICILIO:
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-9 col w-25 d-table-cell">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                @@NUMDIST
+                            </li>
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                @@DV
+                            </li>
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                @@TELEFONOM
+                            </li>
+                            <li class="list-group-item p-1" style="background-color: transparent;">
+                                @@DIRECCION
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div class="" style="font-size: 13px; margin-top: 10px; border: 2px solid gray;">
+            <div class="bg-secondary text-white p-1 ps-2">
+                <strong>MOTIVO DE LA SOLICITUD (CLARA Y BREVE DESCRIPCI&Oacute;N)</strong>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <hr>
+            <br>
+            <hr>
+            <br>
+            <hr>
+            <br>
+            <hr>
+        </div>
+        <br />
+        <div class="" style="font-size: 13px; margin-top: 10px; border: 2px solid gray;">
+            <div class="bg-secondary text-white p-1 ps-2">
+                <strong>AN&Aacute;LISIS DE CARTERA/PROPUESTA DE REESTRUCTURA (LLENADO POR GERENTE DE SUCURSAL)</strong>
+            </div>
+            <br>
+            <hr>
+            <br>
+            <hr>
+            <br>
+            <hr>
+            <br>
+            <hr>
+            <br>
+            <hr>
+        </div>
+        <br>
+        <div>
+            <p align="justify">
+                <strong>Compromiso:</strong> Por medio del presente, reitero mi compromiso de mantener al corriente la
+                cuenta que al
+                d&iacute;a de
+                hoy tengo con @@EMPRESA, pues reconozco que cualquier pr&eacute;stamo que he otorgado lo he hecho sin
+                presi&oacute;n de
+                cualquier persona, y por tanto, entiendo que es mi responsabilidad cumplir en tiempo y forma con los
+                pagos
+                subsecuentes. Comprendiendo que en caso de no ser as&iacute;, existe poder legal de ejecutar los
+                documentos
+                que
+                amparan dicho acuerdo.
+            </p>
+        </div>
+    </div>
+
+    <div style="position: absolute; bottom: 50px;">
+        <div class="row m-0 mb-2 d-table-row">
+            <div class="col-sm-4 text-center ps-3 pe-3 w-50 d-table-cell">
+                <p class="bg-secondary text-white text-center fw-bold fs-6">SOCIA</p>
+                <br>
+                <hr class="mt-5 mb-0" />
+                <span>NOMBRE Y FIRMA</span>
+            </div>
+            <div class="col-sm-4 text-center ps-3 pe-3 w-50 d-table-cell">
+                <p class="bg-secondary text-white text-center fw-bold fs-6">GERENTE</p>
+                <br>
+                <hr class="mt-5 mb-0" />
+                <span>NOMBRE Y FIRMA</span>
+            </div>
+            <div class="col-sm-4 text-center d-table-cell">
+                <p class="bg-secondary text-white text-center"></p>
+                <br>
+                <hr class="" />
+                <span></span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

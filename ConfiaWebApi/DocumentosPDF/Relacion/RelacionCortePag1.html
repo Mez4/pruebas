@@ -1,0 +1,243 @@
+﻿<html>
+
+<head>
+  <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor" />
+  <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor" />
+  @@JQUERY
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .divd::before {
+      content: "";
+      /* required for ::before to show */
+      width: 400px;
+      height: 400px;
+      background: url("https://@@SERVER/pdf/LogoImg/@@LOGO") no-repeat center center;
+      background-size: contain;
+      /* this ensures it fits inside the box */
+      position: absolute;
+      opacity: 0.3;
+      left: 50%;
+      margin-left: -200px;
+      text-align: center;
+      z-index: 0;
+      /* optional: make sure it goes behind content */
+    }
+  </style>
+</head>
+
+<body style="font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'">
+  <div style="margin: 0px">
+    <div class="container">
+      <div class="d-table" style="width: 100%">
+        <div class="d-table-row">
+          <figure class="text-end">
+            <blockquote class="blockquote">
+              <h6 style="font-size: 10px">
+                EMISI&Oacute;N: @@IMPRIMIO @@FECHA_PRINT
+              </h6>
+            </blockquote>
+          </figure>
+        </div>
+      </div>
+      <div class="d-table" style="width: 100%">
+        <div class="d-table-row">
+          <div class="text-center w-25 d-table-cell">
+            <figure class="figure">
+              <img id="logo" style="max-height: 200px; max-width: 220px" class="center"
+                src="https://@@SERVER/pdf/LogoImg/@@LOGO" />
+              <br />
+              <h5><strong>@@ESLOGAN</strong></h5>
+            </figure>
+          </div>
+          <div class="text-center w-75 d-table-cell">
+            <figure class="figure" style="width: 100%">
+              <blockquote class="blockquote">
+                <h2>
+                  <strong>RELACI&Oacute;N DE COBRANZA</strong>
+                </h2>
+                <h6>
+                  <strong> @@DscDist: @@ID_DIST - @@NOMBRE_DIST </strong>
+                </h6>
+              </blockquote>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <div class="d-table" style="width: 100%">
+        <div class="d-table-row" style="width: 100%">
+          <div class="text-center d-table-cell">&nbsp;</div>
+          <div class="text-center d-table-cell" style="width: 27%">
+            <figure class="text-center">
+              <div class="card-subtitle" style="
+                    color: white;
+                    border: solid 1px black;
+                    background-color: @@COLOR;
+                  ">
+                <h8><strong>Tel&eacute;fono</strong></h8>
+              </div>
+              <table class="table table-bordered border-dark" style="font-size: 11px">
+                <thead>
+                  <tr>
+                    <td class="text-center">@@TELEFONO_DIST</td>
+                  </tr>
+                </thead>
+              </table>
+            </figure>
+          </div>
+          <div class="text-center d-table-cell">&nbsp;</div>
+          <div class="text-center d-table-cell" style="width: 27%">
+            <figure class="text-center">
+              <div class="card-subtitle" style="
+                    color: white;
+                    border: solid 1px black;
+                    background-color: @@COLOR;
+                  ">
+                <h8><strong>Fecha de Corte</strong></h8>
+              </div>
+              <table class="table table-bordered border-dark" style="font-size: 11px">
+                <thead>
+                  <tr>
+                    <td class="text-center">@@FECHA_CORTE</td>
+                  </tr>
+                </thead>
+              </table>
+            </figure>
+          </div>
+          <div class="text-center d-table-cell">&nbsp;</div>
+          <div class="text-center d-table-cell" style="width: 27%">
+            <figure class="text-center">
+              <div class="card-subtitle" style="
+                    color: white;
+                    border: solid 1px black;
+                    background-color: @@COLOR;
+                  ">
+                <h8><strong>Fecha limite de pago</strong></h8>
+              </div>
+              <table class="table table-bordered border-dark" style="font-size: 11px">
+                <thead>
+                  <tr>
+                    <td class="text-center">@@FECHA_LIMITE</td>
+                  </tr>
+                </thead>
+              </table>
+            </figure>
+          </div>
+          <div class="text-center d-table-cell">&nbsp;</div>
+        </div>
+      </div>
+
+      <div class="d-table" style="width: 100%">
+        <div class="row d-table-row" style="width: 100%">
+          <div class="text-center d-table-cell" style="width: 58%">
+            <figure class="text-center">
+              <div class="card-subtitle" style="color: black">
+                <h8><strong>Informaci&oacute;n de los cr&eacute;ditos</strong>
+                </h8>
+              </div>
+              <table class="table table-bordered border-dark" style="font-size: 10px">
+                @@TABLAPRODUCTOSCABECERA
+                <!-- <thead style="background-color: @@COLOR">
+                    <tr style="color: white">
+                      <th class="text-center">Producto</th>
+                      <th class="text-center">Vale Dinero</th>
+                      <th class="text-center">Linea de prestamos</th>
+                      <th class="text-center">@@NOMBREENCABEZADOTIENDITA</th>
+                      <th class="text-center">@@NOMBREENCABEZADOCONFIAHOME</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="text-center">Disponible</td>
+                      <td class="text-center">@@DISPONIBLE</td>
+                      <td class="text-center">@@LINEAPRESTAMO</td>
+                      <td class="text-center">@@LINEATIENDITA</td>
+                      <td class="text-center">@@LINEACONFIAHOME</td>
+                    </tr>
+                  </tbody> -->
+              </table>
+            </figure>
+          </div>
+          <div class="text-center d-table-cell" style="width: 4%"></div>
+          <div class="text-center d-table-cell" style="width: 38%">
+            <figure class="text-center">
+              <div class="card-subtitle">
+                <h8 style="color: white">&nbsp;</h8>
+              </div>
+              <table class="table table-bordered border-dark" style="font-size: 10px">
+                <thead style="background-color: @@COLOR">
+                  <tr style="color: white">
+                    <th class="text-center">Monedero Electr&oacute;nico</th>
+                    <th class="text-center">Ahorro</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">Acumulado | @@ACUMULADO</td>
+                    <td class="text-center">Ahorro | @@AHORRO</td>
+                  </tr>
+                </tbody>
+              </table>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <!--CLASE DIVD ES PARA EL FONDO DEL LOGO-->
+      <div class="divd d-table" style="width: 100%">
+        <div class="d-table-row" style="width: 100%">
+          <div class="text-center d-table-cell">
+            <figure class="text-center">
+              <div class="card-subtitle" style="color: black; background-color: @@COLOR">
+                <h8><strong>VALE DINERO</strong></h8>
+              </div>
+              <table class="table table-sm" style="border: #ffffff; width: 100%">
+                <thead style="font-size: 12px">
+                  <tr>
+                    <th class="text-center">+1V</th>
+                    <th class="text-center">FD</th>
+                    <th class="text-center">PP</th>
+                    <th class="text-center">Fecha Canje</th>
+                    <th class="text-center">No Cda</th>
+                    <th class="text-center">Folio Vale</th>
+                    <th class="text-center">Cliente</th>
+                    <th class="text-center">MOV</th>
+                    <th class="text-center">Importe</th>
+                    <th class="text-center">Saldo</th>
+                    <th class="text-center">Pago Plazo</th>
+                    <th class="text-center">Saldo desp. de pago</th>
+                    <th class="text-center">Plazo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @@DETALLE_RELACION
+                </tbody>
+                <tfoot style="font-size: 12px">
+                  <tr>
+                    <th class="text-center" colspan="6" scope="row">
+                      TOTAL DE CANJES
+                    </th>
+                    <th class="text-center">REGISTROS: @@COUNT</th>
+                    <th class="text-center"></th>
+                    <th class="text-center">@@TIMPORTE</th>
+                    <th class="text-center">@@TSALDO</th>
+                    <th class="text-center">@@TPAGO</th>
+                    <th class="text-center">@@TREMANENTE</th>
+                    <th class="text-center">&nbsp;</th>
+                    <th></th>
+                  </tr>
+                </tfoot>
+              </table>
+            </figure>
+          </div>
+        </div>
+        @@VALECOBRANZATABLA @@CREDITOSPERSONALESTABLA
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

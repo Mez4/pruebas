@@ -1,0 +1,12 @@
+[
+    {
+        "Cs": "Server=192.168.56.101;Database=DBConfia;Trusted_Connection=False;User=sa;Password=Mexico2021",
+        "Namespace": "DBContext",
+        "Db": "DBConfia"
+    },
+    {
+        "Cs": "Server=192.168.56.101;Database=AplicadorPagos;Trusted_Connection=False;User=sa;Password=Mexico2021",
+        "Namespace": "PagosContext",
+        "Db": "AplicadorPagos"
+    }
+]

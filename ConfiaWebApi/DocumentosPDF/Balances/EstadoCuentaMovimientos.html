@@ -1,0 +1,114 @@
+﻿<html>
+
+<head>
+  <link href="https://@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor" />
+  <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor" />
+  @JQUERY
+  <style type="text/css">
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      /* font-size: 12px; */
+      margin: 0;
+      padding: 0;
+    }
+
+    .custom-table {
+      border-collapse: collapse;
+      width: 100%;
+      font-size: 15px;
+    }
+
+    .custom-table th,
+    .custom-table td {
+      border: 1px solid #d7d7d7;
+      padding: 4px;
+      text-align: left;
+    }
+
+    .header-table td {
+      border: none;
+      padding: 2px;
+      font-weight: bold;
+    }
+
+    .title {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .custom-table-header {
+      border-collapse: separate !important;
+      font-size: 16px;
+      border-spacing: 5px;
+    }
+
+    .custom-table-header td {
+      border-left: 2px solid #d7d7d7;
+      border-bottom: 2px solid #d7d7d7;
+      padding: 1px;
+    }
+  </style>
+</head>
+
+<body style="font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';">
+  <div style="margin: 0px">
+    <div class="container">
+      <div class="d-table" style="width: 100%">
+        <div class="d-table-row">
+          <div class="text-center d-table-cell" style="width: 20%; height: 100%;">
+            <span class="align-middle" style="width: 100%;font-weight: bold; font-size: 20px;">ESTADO DE CUENTA</span>
+          </div>
+          <div class="text-center d-table-cell" style="width: 70%;">
+            <table class="table table-xs custom-table-header">
+              <tbody>
+                <tr>
+                  <td style="font-weight: bold;">CUENTA:</td>
+                  <td class="text-end">@CUENTA</td>
+                  <td style="font-weight: bold;">BALANCE:</td>
+                  <td class="text-end">@BALANCE</td>
+                </tr>
+                <tr>
+                  <td style="font-weight: bold;">IMPRESION:</td>
+                  <td class="text-end">@FECHA_PRINT</td>
+                  <td style="font-weight: bold;">USUARIO:</td>
+                  <td class="text-end">@IMPRIMIO</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="text-center d-table-cell" style="width: 10%;">
+          </div>
+        </div>
+      </div>
+      <div class="d-table" style="width: 100%">
+        <div class="d-table-row">
+          <div class="text-center d-table-cell" style="width: 100%;">
+            <table class="table table-sm custom-table">
+              <thead>
+                <tr>
+                  <th class="text-center">FECHA</th>
+                  <th class="text-center">ID</th>
+                  <th class="text-center">TIPO</th>
+                  <th class="text-center">FECHA_CAP</th>
+                  <th>DESCRIPCION</th>
+                  <th>UsuarioID</th>
+                  <th class="text-center">REFAPL</th>
+                  <th class="text-center">SALDO ANT</th>
+                  <th class="text-center">IMPORTE</th>
+                  <th class="text-center">ABONOS</th>
+                  <th class="text-center">CARGOS</th>
+                  <th class="text-center">ACUMULADO</th>
+                </tr>
+              </thead>
+              <tbody>
+                @TABLAMOVIMIENTOS
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

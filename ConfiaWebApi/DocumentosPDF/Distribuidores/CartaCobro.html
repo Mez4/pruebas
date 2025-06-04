@@ -1,0 +1,141 @@
+<html lang="es">
+  <meta charset="UTF-8" />
+  <head>
+    <link
+      href="https://@@SERVER/pdf/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrapEditor"
+    />
+    <link
+      href="../../wwwroot/RecursosPDF/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrapServidor"
+    />
+    <title>Carta Cobro</title>
+    @@JQUERY
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      table {
+        border: solid black 1px;
+      }
+
+      tr {
+        /* page-break-after: auto; */
+      }
+
+      thead {
+        display: table-header-group;
+      }
+
+      tfoot {
+        display: table-footer-group;
+      }
+      .rcorners {
+        text-align: center;
+        border-radius: 15px;
+        border: 2px solid #000000;
+        width: 100%;
+        padding: 0.3rem;
+      }
+    </style>
+  </head>
+  <body
+    style="font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'"
+  >
+    <div style="margin: 5px">
+      <div class="container">
+        <div class="align-items-center">
+          <div class="col">
+            <figure class="text-end">
+              <blockquote class="blockquote">
+                <h6 style="font-size: 10px">
+                  EMISI&Oacute;N: @@IMPRIMIO @@FECHA_PRINT
+                </h6>
+              </blockquote>
+            </figure>
+          </div>
+        </div>
+        <div style="margin-bottom: 0">
+          <div class="d-table" style="width: 100%">
+            <div class="d-table-row">
+              <div class="text-center d-table-cell">
+                <figure
+                  class="figure"
+                  style="
+                    margin-top: 1px;
+                    margin-left: 8px !important;
+                    margin-right: 35px !important;
+                  "
+                >
+                  <img
+                    id="logo"
+                    style="max-height: 100px; max-width: 110px"
+                    class="center"
+                    src="https://@@SERVER/pdf/LogoImg/@@LOGO"
+                  />
+                  <br />
+                  <h5><strong>@@ESLOGAN</strong></h5>
+                </figure>
+              </div>
+              <div class="w-75 d-table-cell">
+                <figure
+                  class="figure"
+                  style="margin-left: 5px !important; width: 100%"
+                >
+                  <blockquote class="blockquote text-end">
+                    <h3 style="margin-bottom: 1px; margin-right: 1rem">
+                      <strong>CREDITO Y COBRANZA</strong>
+                    </h3>
+                  </blockquote>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12" style="margin-top: 20px"></div>
+        <p class="text-end">
+          En ________________________________ a @@DIAACTUAL de @@MESACTUAL del
+          @@ANIOACTUAL
+        </p>
+      </div>
+      <div class="col-12 text-center" style="margin-top: 40px">
+        <h5>SOLICITUD DE PAGO</h5>
+      </div>
+      <div class="col-12 text-center" style="margin-top: 20px">
+        <div class="col-12">
+          <div class="col-12" style="margin-top: 35px; text-align: left">
+            <p>Estimada(o) @@NOMBREDV</p>
+          </div>
+          <p style="text-align: left">
+            Por este medio nos dirigimos a Ud. Para solicitarle se presente a
+            pagar su quincena vencida en un plazo no mayor de 24 horas, estamos
+            seguros de que como persona responsable que mostro ser desde que le
+            entregamos su crédito tendremos respuesta inmediata
+          </p>
+        </div>
+        <div class="col-12" style="margin-top: 15px; text-align: left">
+          <p>
+            El total de su pago es de @@CANTIDADCOBRO el cual debe quedar
+            cubierto en su totalidad, de tener algún inconveniente para
+            realizarlo en el plazo de 24 horas, lo invitamos a que pase con su
+            Coordinador a la brevedad posible
+          </p>
+        </div>
+        <div class="col-12" style="margin-top: 15px; text-align: left">
+          <p>
+            Recuerde todos los beneficios que tiene un Distribuidor de Vale
+            Confía al realizar sus pagos de manera puntual CUIDE SU NEGOCIO
+          </p>
+        </div>
+
+        <div class="col-12 text-center" style="margin-top: 20px">
+          <p>______________________________________________</p>
+          <p>RESPONSABLE DE COBRANZA</p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

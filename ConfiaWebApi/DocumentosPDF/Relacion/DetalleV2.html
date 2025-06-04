@@ -1,0 +1,322 @@
+<html>
+  <head>
+    <link
+      href="https://@@SERVER/pdf/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrapEditor"
+    />
+    <link
+      href="../../wwwroot/RecursosPDF/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrapServidor"
+    />
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .divd::before {
+        content: "";
+        width: 400px;
+        height: 400px;
+        background: url("https://@@SERVER/pdf/LogoImg/@@LOGO");
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: center;
+        position: absolute;
+        opacity: 0.3;
+        left: 50%;
+        margin-left: -200px;
+        text-align: center;
+      }
+      table {
+        page-break-inside: auto;
+        /* border-collapse:separate; */
+        border: solid black 1px;
+        /* border-radius:6px; */
+      }
+
+      tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+      }
+
+      thead {
+        display: table-header-group;
+      }
+
+      tfoot {
+        display: table-footer-group;
+      }
+      table.rounded-corners {
+        border-spacing: 0;
+        border-collapse: separate;
+        border-radius: 10px;
+        border: 1px solid black;
+      }
+
+      /* Apply a border to the right of all but the last column */
+      table.rounded-corners th:not(:last-child),
+      table.rounded-corners td:not(:last-child) {
+        border-right: 1px solid black;
+      }
+
+      /* Apply a border to the bottom of all but the last row */
+      table.rounded-corners > thead > tr:not(:last-child) > th,
+      table.rounded-corners > thead > tr:not(:last-child) > td,
+      table.rounded-corners > tbody > tr:not(:last-child) > th,
+      table.rounded-corners > tbody > tr:not(:last-child) > td,
+      table.rounded-corners > tfoot > tr:not(:last-child) > th,
+      table.rounded-corners > tfoot > tr:not(:last-child) > td,
+      table.rounded-corners > tr:not(:last-child) > td,
+      table.rounded-corners > tr:not(:last-child) > th,
+      table.rounded-corners > thead:not(:last-child),
+      table.rounded-corners > tbody:not(:last-child),
+      table.rounded-corners > tfoot:not(:last-child) {
+        border-bottom: 1px solid black;
+      }
+      .rcorners {
+        text-align: center;
+        border-radius: 15px;
+        border: 2px solid #000000;
+        padding: 15px;
+        width: 100%;
+        height: 65px;
+      }
+
+      .rcorners2 {
+        border-radius: 25px;
+        border: 2px solid #000000;
+        padding: 10px;
+        width: 100%;
+        height: auto;
+      }
+      .rcorners3 {
+        border-radius: 25px;
+        border: 2px solid #000000;
+        padding: 10px;
+        width: 840px;
+        height: 350px;
+        text-align: center;
+      }
+      #apDiv1 {
+        position: absolute;
+        left: 616px;
+        top: 1200px;
+        width: 122px;
+        height: 100px;
+        text-align: center;
+        line-height: 45px;
+        z-index: 2;
+        font-size: 14px;
+      }
+
+      #apDiv2 {
+        position: absolute;
+        left: 690px;
+        top: 1200px;
+        width: 122px;
+        height: 100px;
+        text-align: center;
+        line-height: 45px;
+        z-index: 2;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body
+    style="font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif'"
+  >
+    <div style="margin: 5px">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col">
+            <figure class="text-end">
+              <blockquote class="blockquote">
+                <h6 style="font-size: 14px">
+                  EMISI&Oacute;N: @@IMPRIMIO @@FECHA_PRINT
+                </h6>
+              </blockquote>
+            </figure>
+          </div>
+        </div>
+        <div style="margin-bottom: 1px !important">
+          <div class="d-table-cell">
+            <div class="text-center w-25 d-table-cell">
+              <figure
+                class="figure"
+                style="
+                  margin-top: 1px;
+                  margin-left: 1px !important;
+                  margin-right: 35px !important;
+                "
+              >
+                <!--<img src="https://@@SERVER/pdf/logo4.png" style="width:120px">-->
+                <img
+                  id="logo"
+                  style="max-height: 200px; max-width: 220px"
+                  class="center"
+                  src="https://@@SERVER/pdf/LogoImg/@@LOGO"
+                />
+                <!-- <br /> -->
+                <!--<figcaption class="figure-caption text-center text-dark">-->
+                <h5 class=""><strong>@@ESLOGAN</strong></h5>
+                <!--</figcaption>-->
+              </figure>
+            </div>
+          </div>
+        </div>
+
+        <!--CLASE DIVD ES PARA EL FONDO DEL LOGO-->
+        <div class="divd d-table" style="width: 100%">
+          <div class="row m-0 mb-2 d-table-row" style="width: 100%">
+            <div class="text-center ps-3 w-100 d-table-cell">
+              <!--<div class="table-responsive">-->
+              <table
+                class="table table-sm"
+                style="border: #ffffff; width: 100%"
+              >
+                <thead>
+                  <tr>
+                    <th class="text-center fs-14" style="font-size: 13px">
+                      Fecha Canje
+                    </th>
+                    <!--<th class="text-center fs-6" scope="col">Sucursal</th>-->
+                    <th class="text-center" style="font-size: 13px">
+                      Cr&eacute;dito
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      Folio Vale
+                    </th>
+                    <th class="text-center" style="font-size: 13px">Cliente</th>
+                    <th class="text-center" style="font-size: 13px">Importe</th>
+                    <th class="text-center" style="font-size: 13px">Saldo</th>
+                    <th class="text-center" style="font-size: 13px">Atraso</th>
+                    <th class="text-center" style="font-size: 13px">Pago</th>
+                    <th class="text-center" style="font-size: 13px">
+                      Sld Dsp P
+                    </th>
+                    <th class="text-center" style="font-size: 13px">Plazo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!--style="page-break-before:always;"-->
+                  @@DETALLE_RELACION_2
+                </tbody>
+                <tfoot style="font-size: 13px">
+                  <tr>
+                    <th
+                      class="text-center"
+                      style="font-size: 13px"
+                      colspan="3"
+                      scope="row"
+                    >
+                      TOTAL @@PRODUCTO
+                    </th>
+                    <th class="text-center" style="font-size: 13px" colspan="1">
+                      REGISTROS: @@COUNT
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@TIMPORTE
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@TSALDO
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@TATRASO
+                    </th>
+                    <th class="text-center" style="font-size: 13px">@@TPAGO</th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@TREMANENTE
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      <!-- @@ESPACIO -->
+                    </th>
+                    <th></th>
+                  </tr>
+                  <!--@@GRAN_TOTAL-->
+                </tfoot>
+              </table>
+              <!--</div>-->
+            </div>
+          </div>
+        </div>
+
+        <div class="d-table @@CLASEOCULTARTABLASOCIA" style="width: 100%">
+          <div class="row m-0 mb-2 d-table-row" style="width: 100%">
+            <div class="text-center ps-3 w-100 d-table-cell">
+              <table
+                class="table table-sm"
+                style="border: #ffffff; width: 100%"
+              >
+                <thead>
+                  <tr>
+                    <th class="text-center" style="font-size: 13px">
+                      Fecha Canje
+                    </th>
+                    <!--<th class="text-center fs-6" scope="col">Sucursal</th>-->
+                    <th class="text-center" style="font-size: 13px">
+                      Cr&eacute;dito
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      Folio Vale
+                    </th>
+                    <th class="text-center" style="font-size: 13px">Cliente</th>
+                    <th class="text-center" style="font-size: 13px">Importe</th>
+                    <th class="text-center" style="font-size: 13px">Saldo</th>
+                    <th class="text-center" style="font-size: 13px">Atraso</th>
+                    <th class="text-center" style="font-size: 13px">Pago</th>
+                    <th class="text-center" style="font-size: 13px">
+                      Sld Dsp P
+                    </th>
+                    <th class="text-center" style="font-size: 13px">Plazo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!--style="page-break-before:always;"-->
+                  @@PPDETALLE_RELACION
+                </tbody>
+                <tfoot style="font-size: 13px">
+                  <tr>
+                    <th
+                      class="text-center"
+                      style="font-size: 13px"
+                      colspan="3"
+                      scope="row"
+                    >
+                      TOTAL @@PPPRODUCTO<!--TIPO DE CANJE -->
+                    </th>
+                    <th class="text-center" style="font-size: 13px" colspan="1">
+                      REGISTROS: @@PPCOUNT
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@PPTIMPORTE
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@PPTSALDO
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@PPTATRASO
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@PPTPAGO
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@PPTREMANENTE
+                    </th>
+                    <th class="text-center" style="font-size: 13px">
+                      @@PPESPACIO
+                    </th>
+                    <th></th>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!--@@RESTO_DETALLE-->
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+/* body { */
+/* font-family: Roboto; */
+/* background: grey; */
+/* text-align: center; */
+/* } */
+
+.carousel.carousel-slider {
+    margin: 0px auto;
+    overflow: visible;
+}
+
+.carousel .slide {
+    color: white;
+    background: rgb(129, 139, 143);
+    text-align: center;
+}
+
+.carousel .slide-holder {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 75%;
+    height: 100%;
+    /* text-align: center;  */
+}
+
+.carousel .slide img {
+    margin: 10px;
+    width: 200px;
+    height: 350px;
+    object-fit: contain;
+    margin-left: 55px;
+}
+
+.carousel .slide iframe {
+    margin: 15px;
+    width: 35%;
+}
+
+.carousel .text-container {
+    padding: 30px;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.carousel .text-container h2 {
+    margin-top: 0px;
+}
+
+.carousel .text-container p:last-child {
+    margin-bottom: 0px;
+}
+
+.carousel .control-dots {
+    bottom: -40px;
+}
+
+.carousel .thumbs-wrapper {
+    margin: 30px;
+}

@@ -1,0 +1,91 @@
+﻿<html>
+
+<head>
+    <link href="https://@@SERVER/pdf/bootstrap.min.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/bootstrap.min.css" rel="stylesheet" id="bootstrapServidor">
+    <!--<link href="https://@@SERVER/pdf/Relacion.Caratula.css" rel="stylesheet" id="bootstrapEditor">
+    <link href="../../wwwroot/RecursosPDF/Relacion.Caratula.css" rel="stylesheet" id="bootstrapServidor">-->
+    <!--<style type="text/css">
+        table {
+            page-break-inside: auto;
+            border: none;
+        }
+
+        div {
+            page-break-inside: avoid;
+        }
+        /* This is the key */
+        thead {
+            display: table-header-group
+        }
+
+        tfoot {
+            display: table-footer-group
+        }
+    </style>-->
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .divd::before {
+            content: "";
+            width: 400px;
+            height: 400px;
+            background: url('https://@@SERVER/pdf/LogoImg/@@LOGO');
+            background-repeat: no-repeat;
+            background-position-x: center;
+            background-position-y: center;
+            position: absolute;
+            opacity: 0.3;
+            left: 50%;
+            margin-left: -200px;
+        }
+
+        table {
+            page-break-inside: auto
+        }
+
+        tr {
+            page-break-inside: avoid;
+            page-break-after: auto
+        }
+
+        thead {
+            display: table-header-group
+        }
+
+        tfoot {
+            display: table-footer-group
+        }
+
+        .rcorners {
+            border-radius: 25px;
+            border: 2px solid #000000;
+            padding: 20px;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
+    <div style="margin: 10px;">
+        <div class="container divd">
+            <div class="row align-items-center">
+                <div class="col-12">
+                    <figure class="text-center">
+                        <div class="card border-dark mb-1">
+                            @@RESTO_DETALLE
+                            <!-- @@GRANTOTAL -->
+                        </div>
+                        <div class="col-sm-2 text-center ps-3 pe-3 w-25 d-table-cell"></div>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

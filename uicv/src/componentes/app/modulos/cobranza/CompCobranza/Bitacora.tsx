@@ -1,0 +1,460 @@
+import React from "react";
+import DataTable, { IDataTableColumn } from "react-data-table-component";
+import { connect } from "react-redux";
+import { IEstado } from "../../../../../interfaces/redux/IEstado";
+import { IOidc } from "../../../../../interfaces/oidc/IOidc";
+import ModalWin, { MODAL_TITLE_CLASS } from "../../../../global/ModalWin";
+
+import * as Funciones from "./Bitacora/Funciones";
+
+// Icons
+import { FaPencilAlt, FaPlus, FaSearch, FaCircle } from "react-icons/fa";
+
+// Custom components
+import { Card, Spinner } from "../../../../global";
+import { FiRefreshCcw } from "react-icons/fi";
+
+import { FiltrarDatos } from "../../../../../global/functions";
+//import { CForm } from './CatalogoClasificador/CForm'
+import ReactTooltip from "react-tooltip";
+
+type CatalogosType = {
+  oidc: IOidc;
+};
+
+const Bitacora = (props: CatalogosType) => {
+  // Controll our mounted state
+  let isMounted = React.useRef(true);
+
+  const DatosDefecto = {
+    Id: 0,
+    UsuarioID: 0,
+    UsuarioNombre: "",
+    PersonaLogueadaID: 0,
+    PersonaLogueadaNombre: "",
+    GestorID: 0,
+    GestorNombre: "",
+    EncargadoID: 0,
+    EncargadoNombre: "",
+    MesaCobranzaID: 0,
+    MesaCobranzaNombre: "",
+    Clave: "",
+    Descripcion: "",
+    Fecha: "",
+  };
+  const Datos: any[] = [];
+  const DatosMostrar: any[] = [];
+  const [state, setState] = React.useState({
+    Datos,
+    DatosMostrar,
+    Filtro: "",
+    Cargando: true,
+    Error: false,
+    Form: {
+      Mostrar: false,
+      Datos: DatosDefecto,
+      Id: undefined,
+    },
+  });
+
+  const FNGetLocal = () => {
+    setState((s) => ({ ...s, Cargando: true }));
+    Funciones.FNGet(props.oidc)
+      .then((respuesta: any) => {
+        if (isMounted.current === true) {
+          console.log(respuesta);
+          setState((s) => ({
+            ...s,
+            Cargando: false,
+            Error: false,
+            Datos: respuesta,
+          }));
+        }
+      })
+      .catch((error) => {
+        console.log("###e", error);
+        if (isMounted.current === true) {
+          setState((s) => ({ ...s, Cargando: false, Error: true, Datos: [] }));
+        }
+      });
+  };
+  //  console.log('FN Get Local')
+  //  console.log(FNGetLocal)
+
+
+  const Columns = React.useMemo(() => {
+    let colRet: IDataTableColumn[] = [
+      {
+        name: "id",
+        selector: "Id",
+        sortable: true,
+        width: "5%",
+        //center: true,
+      },
+
+      // {
+      //     name: 'UsuarioID',
+      //     selector: 'UsuarioID',
+      //     sortable: true,
+      // },
+
+      {
+        name: "Usu",
+        selector: "UsuarioNombre",
+        sortable: true,
+        width: "10%",
+        center: true,
+        cell: (props) => (
+          <>
+            <label
+              data-tip
+              data-for={`A_${props.UsuarioNombre}`}
+              className="text-center"
+            >
+              {props.UsuarioNombre}
+            </label>
+            <ReactTooltip
+              id={`A_${props.UsuarioNombre}`}
+              type="info"
+              effect="solid"
+            >
+              {props.UsuarioNombre}
+            </ReactTooltip>
+          </>
+        ),
+      },
+
+      // {
+      //     name: 'PersonaLogueadaID',
+      //     selector: 'PersonaLogueadaID',
+      //     sortable: true,
+      // },
+
+      {
+        name: "PersonaLogueada",
+        selector: "PersonaLogueadaNombre",
+        sortable: true,
+        width: "10%",
+        center: true,
+        cell: (props) => (
+          <>
+            <label
+              data-tip
+              data-for={`A_${props.PersonaLogueadaNombre}`}
+              className="text-center"
+            >
+              {props.PersonaLogueadaNombre}
+            </label>
+            <ReactTooltip
+              id={`A_${props.PersonaLogueadaNombre}`}
+              type="info"
+              effect="solid"
+            >
+              {props.PersonaLogueadaNombre}
+            </ReactTooltip>
+          </>
+        ),
+      },
+
+      // {
+      //     name: 'EncargadoID',
+      //     selector: 'EncargadoID',
+      //     sortable: true,
+      // },
+
+      {
+        name: "Encargado",
+        selector: "EncargadoNombre",
+        sortable: true,
+        width: "10%",
+        center: true,
+        cell: (props) => (
+          <>
+            <label
+              data-tip
+              data-for={`A_${props.EncargadoNombre}`}
+              className="text-center"
+            >
+              {props.EncargadoNombre}
+            </label>
+            <ReactTooltip
+              id={`A_${props.EncargadoNombre}`}
+              type="info"
+              effect="solid"
+            >
+              {props.EncargadoNombre}
+            </ReactTooltip>
+          </>
+        ),
+      },
+
+      // {
+      //     name: 'GestorID',
+      //     selector: 'GestorID',
+      //     sortable: true,
+      // },
+
+      {
+        name: "Gestor",
+        selector: "GestorNombre",
+        sortable: true,
+        width: "10%",
+        center: true,
+        cell: (props) => (
+          <>
+            <label
+              data-tip
+              data-for={`A_${props.GestorNombre}`}
+              className="text-center"
+            >
+              {props.GestorNombre}
+            </label>
+            <ReactTooltip
+              id={`A_${props.GestorNombre}`}
+              type="info"
+              effect="solid"
+            >
+              {props.GestorNombre}
+            </ReactTooltip>
+          </>
+        ),
+      },
+
+      {
+        name: "Socia",
+        selector: "DistribuidorNombre",
+        sortable: true,
+        width: "10%",
+        center: true,
+        cell: (props) => (
+          <>
+            <label
+              data-tip
+              data-for={`A_${props.DistribuidorNombre}`}
+              className="text-center"
+            >
+              {props.DistribuidorNombre}
+            </label>
+            <ReactTooltip
+              id={`A_${props.DistribuidorNombre}`}
+              type="info"
+              effect="solid"
+            >
+              {props.DistribuidorNombre}
+            </ReactTooltip>
+          </>
+        ),
+      },
+
+      // {
+      //     name: 'MesaCobranzaID',
+      //     selector: 'MesaCobranzaID',
+      //     sortable: true,
+      // },
+
+      {
+        name: "MesaCobranza",
+        selector: "MesaCobranzaNombre",
+        sortable: true,
+        width: "11%",
+        center: true,
+        cell: (props) => (
+          <>
+            <label
+              data-tip
+              data-for={`A_${props.MesaCobranzaNombre}`}
+              className="text-center"
+            >
+              {props.MesaCobranzaNombre}
+            </label>
+            <ReactTooltip
+              id={`A_${props.MesaCobranzaNombre}`}
+              type="info"
+              effect="solid"
+            >
+              {props.MesaCobranzaNombre}
+            </ReactTooltip>
+          </>
+        ),
+      },
+
+      {
+        name: "Clave",
+        selector: "Clave",
+        sortable: true,
+        width: "10%",
+        center: true,
+        cell: (props) => (
+          <>
+            <label
+              data-tip
+              data-for={`A_${props.Clave}`}
+              className="text-center"
+            >
+              {props.Clave}
+            </label>
+
+            <ReactTooltip id={`A_${props.Clave}`} type="info" effect="solid">
+              {props.Clave}
+            </ReactTooltip>
+          </>
+        ),
+      },
+
+      {
+        name: "Descripcion",
+        selector: "Descripcion",
+        sortable: true,
+        width: "15%",
+        center: true,
+        cell: (props) => (
+          <>
+            <label
+              data-tip
+              data-for={`A_${props.Descripcion}`}
+              className="text-center"
+            >
+              {props.Descripcion}
+            </label>
+
+            <ReactTooltip
+              id={`A_${props.Descripcion}`}
+              type="info"
+              effect="solid"
+            >
+              {props.Descripcion}
+            </ReactTooltip>
+          </>
+        ),
+      },
+
+      {
+        name: "Fecha",
+        selector: "Fecha",
+        sortable: true,
+        width: "9%",
+        center: true,
+        cell: (props) => (
+          <>
+            <label
+              data-tip
+              data-for={`A_${props.Fecha}`}
+              className="text-center"
+            >
+              {props.Fecha}
+            </label>
+
+            <ReactTooltip id={`A_${props.Fecha}`} type="info" effect="solid">
+              {props.Fecha}
+            </ReactTooltip>
+          </>
+        ),
+      },
+
+      // {
+      //     name: 'Acciones',
+      //     sortable: false,
+      //     cell: (props) =>
+      //         <button className="asstext" type={"button"} onClick={() => {
+      //             setState(s => ({
+      //                 ...s,
+      //                 Form: {
+      //                     ...state.Form, Mostrar: true,
+      //                     Datos: { Id: props.Id, UsuarioPersona: props.UsuarioPersona, NombreCompleto: props.NombreCompleto , Descripcion: props.Descripcion, Fecha: props.Fecha},
+      //                     Id: props.ClasificadorID
+      //                 }
+      //             }))
+      //         }}>
+      //             <FaPencilAlt />
+      //         </button>
+      // },
+    ];
+    return colRet;
+  }, [state.Form]);
+  // console.log('arreglo ')
+  // console.log({Columns})
+  // Use effect
+  React.useEffect(() => {
+    FNGetLocal();
+    return () => {
+      isMounted.current = false;
+    };
+    // eslint-disable-next-line
+  }, []);
+  console.log("datos mostrar prrevio useefect");
+  console.log(DatosMostrar);
+  // On use effect
+  React.useEffect(() => {
+    setState((s) => ({
+      ...s,
+      DatosMostrar: FiltrarDatos(s.Datos, Columns, state.Filtro),
+    }));
+    // eslint-disable-next-line
+  }, [state.Datos, state.Filtro]);
+
+  const fnCancelar = () =>
+    setState({ ...state, Form: { ...state.Form, Mostrar: false } });
+
+  console.log("datos mostrar");
+  console.log({ DatosMostrar });
+  return (
+    <div className="row">
+      <div className="col-12">
+        <Card Title="BITACORA">
+          <Card.Body>
+            <Card.Body.Content>
+              {state.Cargando && <Spinner />}
+              {state.Error && <span>Error al cargar los datos...</span>}
+              {!state.Cargando && !state.Error && (
+                <div>
+                  <DataTable
+                    subHeader
+                    subHeaderComponent={
+                      <div className="row">
+                        <div className="col-sm-12">
+                        <div className="input-group mb-3">
+                              <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Buscar"
+                                value={state.Filtro}
+                                onChange={(e) =>
+                                  setState((s) => ({
+                                    ...s,
+                                    Filtro: e.target.value,
+                                  }))
+                                }
+                              />
+                              <span className="input-group-text">
+                                <FaSearch />{" "}
+                              </span>
+                            </div>
+                        </div>
+                      </div>
+                    }
+                    data={state.DatosMostrar}
+                    striped
+                    pagination
+                    dense
+                    noHeader
+                    responsive
+                    keyField={"Id"}
+                    defaultSortField={"Id"}
+                    columns={Columns}
+                  />
+                </div>
+              )}
+            </Card.Body.Content>
+          </Card.Body>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
+const mapStateToProps = (state: IEstado) => ({
+  oidc: state.oidc,
+});
+
+const mapDispatchToProps = {};
+export default connect(mapStateToProps, mapDispatchToProps)(Bitacora);

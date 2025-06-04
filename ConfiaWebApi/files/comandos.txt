@@ -1,0 +1,2 @@
+Actualizar el esquema de base de datos
+dotnet npoco.scafolddb.sqlserver/bin/Release/net5.0/npoco.scafolddb.sqlserver.dll /i /ConfiaWebApi/dbconfig.json /o ConfiaWebApi/Models/
